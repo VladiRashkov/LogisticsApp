@@ -7,7 +7,7 @@ class Routes:
         self._id = id 
         self._start_loc = start_loc
         self._other_loc = other_loc
-        self._departure = departure  
+        self._departure = departure 
         self._arrival = arrival
 
     @property
@@ -64,3 +64,7 @@ time_now = time_now.strftime('%H:%M')
 print(time_now)
 time_future = datetime.today() + timedelta(hours=10)
 print(time_future.strftime('%H:%M'))
+date_hour = datetime.today()
+print(date_hour.strftime('%d/%m %A @ %H:%M'))
+date_hour = date_hour + timedelta(days=1, hours=2)
+print(date_hour.strftime('%d/%m %A @ %H:%M'))
