@@ -10,7 +10,7 @@ class Distance:
             'DAR-SYD': 3935, 'DAR-MEL': 3752, 'DAR-ADL': 3027, 'DAR-ASP': 1497, 'DAR-BRI': 1765, 'DAR-PER': 4025,
             'PER-SYD': 4016, 'PER-MEL': 3509, 'PER-ADL': 2785, 'PER-ASP': 2481, 'PER-BRI': 4311, 'PER-DAR': 4025
     }
-
+                    
     average_velocity = 87
 
     locations = ['SYD', 'MEL', 'ADL', 'ASP', 'BRI', 'DAR', 'PER']
