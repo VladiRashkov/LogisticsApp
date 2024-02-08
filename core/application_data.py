@@ -1,4 +1,4 @@
-from Models.Package import Package
+from models.package import Package
 
 class ApplicationData:
     def __init__(self):
