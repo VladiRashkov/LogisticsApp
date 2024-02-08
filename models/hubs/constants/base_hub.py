@@ -1,15 +1,11 @@
 class BaseHub:
-    def __init__(self, city_name: str, storage_kg: int):
-        self._city_name = city_name
-        self._storage_kg = storage_kg
+    def __init__(self, total_weight: int):
+        self._total_weight = total_weight
         # self._storage = []
-    @property
-    def city_name(self):
-        return self._city_name
     
     @property
-    def storage_kg(self):
-        return self._storage_kg
+    def total_weight(self):
+        return self._total_weight
     
     # @property
     # def storage(self):
@@ -21,12 +17,8 @@ class BaseHub:
     def load_truck_remove_packages(self, truck_free_space, start_destination, end_destination):
         pass
 
-    def load_truck(self):
-        pass
-
     def view(self):
-        #return '\n'.join([f'{self}'] + [f'  {package}' for package in self._storage]) #? self? v nachaloto?
         pass
+    
     def __str__(self) -> str:
-        #return f'#{self.id}. {self.name_package} ({len(self._storage)} kg)' #? self? id v nachaloto?
         pass
