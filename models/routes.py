@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from distance import Distance
 
 class Routes:
@@ -7,7 +7,7 @@ class Routes:
         self._id = id 
         self._start_loc = start_loc
         self._other_loc = other_loc
-        self._departure = departure  # check how to use a date
+        self._departure = departure  
         self._arrival = arrival
 
     @property
@@ -48,3 +48,19 @@ class Routes:
     def arrival(self):
         return self._arrival
     
+
+
+#experiments:
+now = datetime.now().strftime('%a, %d %B %Y')
+print(now)
+today = datetime.today().strftime('%a, %d %B %Y')
+print(today)
+departure = datetime.today() + timedelta(days =1)
+print(departure.strftime('%a, %d %B %Y'))
+arrival = departure + timedelta(days=2)
+print(arrival.strftime('%a, %d %B %Y'))
+time_now = datetime.now()
+time_now = time_now.strftime('%H:%M')
+print(time_now)
+time_future = datetime.today() + timedelta(hours=10)
+print(time_future.strftime('%H:%M'))
