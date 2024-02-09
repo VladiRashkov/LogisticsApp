@@ -2,8 +2,8 @@ from models.hubs.constants.base_hub import BaseHub
 from models.hubs.constants.destinations_for_package import Destination
 
 class Sydney(BaseHub):
-    def __init__(self, city_name, storage_kg):
-        super().__init__(city_name, storage_kg)
+    def __init__(self, total_weight):
+        super().__init__(total_weight)
         self.destination_ASP = []
         self.destination_DAR = []
         self.destination_BRI = []
