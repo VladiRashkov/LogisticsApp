@@ -40,21 +40,23 @@ class Schedule:
     def date_generator():
         start_date = datetime.today()
         current = start_date.strftime('%d/%m %A @ %H:%M')
-        print(current)
         modified_start_hour = start_date.replace(hour=6)
         current = modified_start_hour.strftime('%d/%m %A @ %H:%M')
-        print(current)
         modified_start_minute = modified_start_hour.replace(minute=00)
         current = modified_start_minute.strftime('%d/%m %A @ %H:%M')
-        print(current)
-
-    date_generator()
-
-    schedule_lst1 = []
+        return current
     
-    # in progress:
-    # for rse1 in routes_schedule_east1:
-    #     point = ''
-    #     point += rse1 + 
+    schedule_lst1 = []
+    start_schedule = date_generator()
+    for r in range(len(routes_schedule_east1)):
+        hub = routes_schedule_east1[r].split('-')
+        point = ''
+        point += hub[0] + ' ' + start_schedule
+        schedule_lst1.append(point)
+        schedule_lst1.append('->')
+        time = ''
+
+    # print(*schedule_lst1[:-1])
+
 
     
