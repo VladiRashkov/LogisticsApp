@@ -1,4 +1,4 @@
-from Models.vehicle import Vehicle
+from models.vehicle import Vehicle
 class Truck:
 
     def __init__(self, vehicle_id):
