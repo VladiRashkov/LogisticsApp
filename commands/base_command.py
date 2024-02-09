@@ -1,4 +1,4 @@
-from Core.application_data import ApplicationData
+from core.application_data import ApplicationData
 
 
 class BaseCommand():
