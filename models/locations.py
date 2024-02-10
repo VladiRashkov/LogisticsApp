@@ -2,9 +2,9 @@ from datetime import datetime, timedelta
 
 # S = v * t; S(km); v(km/h); t(h); average_v = 87 km/h; t = S / v
 
-class Schedule:
+class Locations:
 
-    hubs_distance = {
+    locations_distance = {
         'Sydney-Melbourne': 877, 'Sydney-Adelaide': 1376, 'Sydney-Alice Springs': 2762, 'Sydney-Bristbane': 909, 'Sydney-Darwin': 3935, 'Sydney-Perth': 4016,
             'Melbourne-Sydney': 877, 'Melbourne-Adelaide': 725, 'Melbourne-Alice Springs': 2255, 'Melbourne-Bristbane': 1765, 'Melbourne-Darwin': 3752, 'Melbourne-Perth': 3509,
             'Adelaide-Sydney': 1376, 'Adelaide-Melbourne': 725, 'Adelaide-Alice Springs': 1530, 'Adelaide-Bristbane': 1927, 'Adelaide-Darwin': 3027, 'Adelaide-Perth': 2785,
@@ -14,7 +14,7 @@ class Schedule:
             'Perth-Sydney': 4016, 'Perth-Melbourne': 3509, 'Perth-Adelaide': 2785, 'Perth-Alice Springs': 2481, 'Perth-Bristbane': 4311, 'Perth-Darwin': 4025
     }
 
-    hubs_time = {
+    locations_time = {
         'Sydney-Melbourne': 10, 'Sydney-Adelaide': 15, 'Sydney-Alice Springs': 31, 'Sydney-Bristbane': 10, 'Sydney-Darwin': 45, 'Sydney-Perth': 46, 
         'Melbourne-Sydney': 10, 'Melbourne-Adelaide': 8, 'Melbourne-Alice Springs': 25, 'Melbourne-Bristbane': 20, 'Melbourne-Darwin': 43, 'Melbourne-Perth': 40, 
         'Adelaide-Sydney': 15, 'Adelaide-Melbourne': 8, 'Adelaide-Alice Springs': 17, 'Adelaide-Bristbane': 22, 'Adelaide-Darwin': 34, 'Adelaide-Perth': 32, 
