@@ -1,9 +1,4 @@
-from datetime import datetime, timedelta
-
-# S = v * t; S(km); v(km/h); t(h); average_v = 87 km/h; t = S / v
-
 class Locations:
-
     locations_distance = {
         'Sydney-Melbourne': 877, 'Sydney-Adelaide': 1376, 'Sydney-Alice Springs': 2762, 'Sydney-Bristbane': 909, 'Sydney-Darwin': 3935, 'Sydney-Perth': 4016,
             'Melbourne-Sydney': 877, 'Melbourne-Adelaide': 725, 'Melbourne-Alice Springs': 2255, 'Melbourne-Bristbane': 1765, 'Melbourne-Darwin': 3752, 'Melbourne-Perth': 3509,
@@ -23,47 +18,5 @@ class Locations:
         'Darwin-Sydney': 45, 'Darwin-Melbourne': 43, 'Darwin-Adelaide': 34, 'Darwin-Alice Springs': 17, 'Darwin-Bristbane': 20, 'Darwin-Perth': 46, 
         'Perth-Sydney': 46, 'Perth-Melbourne': 40, 'Perth-Adelaide': 32, 'Perth-Alice Springs': 28, 'Perth-Bristbane': 49, 'Perth-Darwin': 46
     }
-                    
-    average_velocity = 87
-
+    
     locations = ['Sydney', 'Melbourne', 'Adelaide', 'Alice Springs', 'Bristbane', 'Darwin', 'Perth']
-
-
-    def date_generator():
-        start_date = datetime.today()
-        current = start_date.strftime('%d/%m %A @ %H:%M')
-        modified_start_hour = start_date.replace(hour=6)
-        current = modified_start_hour.strftime('%d/%m %A @ %H:%M')
-        modified_start_minute = modified_start_hour.replace(minute=00)
-        # current = modified_start_minute.strftime('%d/%m %A @ %H:%M')
-        current = modified_start_minute
-        return current.strftime('%d/%m %A @ %H:%M')
-    
-    def date_current_generator():
-        start_date = datetime.today()
-        # current_new = start_date.strftime('%d/%m %A @ %H:%M')
-        modified_start_hour = start_date.replace(hour=6)
-        # current_new = modified_start_hour.strftime('%d/%m %A @ %H:%M')
-        modified_start_minute = modified_start_hour.replace(minute=00)
-        # current_new = modified_start_minute.strftime('%d/%m %A @ %H:%M')
-        current_date = modified_start_minute + timedelta(hours=10)
-        return current_date.strftime('%d/%m %A @ %H:%M')
-    
-    current_date = date_current_generator()
-    print(current_date)
-    
-    # schedule_lst1 = []
-    start_schedule = date_generator()
-    print(start_schedule)
-    # for r in range(len(routes_schedule_east1)):
-    #     hub = routes_schedule_east1[r].split('-')
-    #     point = ''
-    #     point += hub[0] + ' ' + start_schedule
-    #     schedule_lst1.append(point)
-    #     schedule_lst1.append('->')
-    #     time = ''
-
-    # print(*schedule_lst1[:-1])
-
-
-    
