@@ -2,12 +2,12 @@ from datetime import datetime, timedelta
 from locations import Locations 
 
 class Route: 
-    def __init__(self, id: int, start_location: Locations, end_location: Locations, start_date_time: datetime) -> None:
+    def __init__(self, id: int, start_location: Locations, end_location: Locations) -> None:
         self._id = id  # check how to not mess up 
         self._start_location = start_location
         self._end_location = end_location
         self._other_locations = []
-        self._start_date_time = datetime
+        # self._start_date_time = datetime.today()
 
         # self._package = []  # to follow how to connect with model packages.py
         # self._truck = []  # to follow how to connect with model truck.py
@@ -42,16 +42,6 @@ class Route:
     def other_locations(self):
         return tuple(self._other_locations)
     
-    @property
-    def start_date_time(self):
-        return self._start_date_time.strftime('%d/%m %A @ %H:%M')
-    
-    @start_date_time.setter
-    def start_date_time(self, value):
-        if value < datetime.today():
-            raise ValueError('The date and time cannot be in the past!')
-        
-        self._start_date_time = value
     
     def add_other_location(self, location):
         if location not in Locations.locations:
@@ -59,12 +49,25 @@ class Route:
         
         self._other_locations.append(location)
 
-    # def date_generator(start_date_time):  # not sure about this
-    #     start_date_time = datetime.today()
-    #     change_hour = start_date_time.replace(hour=6)
-    #     change_minutes = change_hour.replace(minute=00)
-    #     return change_minutes.strftime('%d/%m %A @ %H:%M')
+    def date_time(): # not sure about this
+        start_date_time = datetime.today()
+        change_hour = start_date_time.replace(hour=6)
+        change_minutes = change_hour.replace(minute=00)
+        start_date_time = change_minutes + timedelta(days=1)
+        
+        return start_date_time.strftime('%d/%m %A @ %H:%M')
     
+    
+    def next_date_time():
+        start_date_time = datetime.today()
+        change_hour = start_date_time.replace(hour=6)
+        change_minutes = change_hour.replace(minute=00)
+        start_date_time = change_minutes + timedelta(days=1)
+        start_date_time += timedelta(hours=10)
+
+        return start_date_time.strftime('%d/%m %A @ %H:%M')
+
+
     # # string that shows a list of the scheduled routes
     # def info_route(self):
     #     pass
