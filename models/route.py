@@ -1,15 +1,13 @@
 from datetime import datetime, timedelta
-from models.locations import Locations
+from locations import Locations 
 
-class Routes:
-    def __init__(self, id: int, start_location: str, end_location: str, start_date_time: datetime) -> None:
-        self._date_generator(start_date_time)
-
+class Route: 
+    def __init__(self, id: int, start_location: Locations, end_location: Locations, start_date_time: datetime) -> None:
         self._id = id  # check how to not mess up 
         self._start_location = start_location
         self._end_location = end_location
         self._other_locations = []
-        self._start_date_time = start_date_time
+        self._start_date_time = datetime
 
         # self._package = []  # to follow how to connect with model packages.py
         # self._truck = []  # to follow how to connect with model truck.py
@@ -46,20 +44,28 @@ class Routes:
     
     @property
     def start_date_time(self):
-        return self._start_date_time.
-
-    def date_generator(self, start_date_time):
-        start_date_time = datetime.today()
-        current = start_date_time .strftime('%d/%m %A @ %H:%M')
-        modified_start_hour = start_date_time .replace(hour=6)
-        current = modified_start_hour.strftime('%d/%m %A @ %H:%M')
-        modified_start_minute = modified_start_hour.replace(minute=00)
-        # current = modified_start_minute.strftime('%d/%m %A @ %H:%M')
-        current = modified_start_minute
-        return current.strftime('%d/%m %A @ %H:%M') 
+        return self._start_date_time.strftime('%d/%m %A @ %H:%M')
     
+    @start_date_time.setter
+    def start_date_time(self, value):
+        if value < datetime.today():
+            raise ValueError('The date and time cannot be in the past!')
+        
+        self._start_date_time = value
+    
+    def add_other_location(self, location):
+        if location not in Locations.locations:
+            raise ValueError('Please enter a supported location!')
+        
+        self._other_locations.append(location)
 
-    # # shows a list of the scheduled routes
+    # def date_generator(start_date_time):  # not sure about this
+    #     start_date_time = datetime.today()
+    #     change_hour = start_date_time.replace(hour=6)
+    #     change_minutes = change_hour.replace(minute=00)
+    #     return change_minutes.strftime('%d/%m %A @ %H:%M')
+    
+    # # string that shows a list of the scheduled routes
     # def info_route(self):
     #     pass
 
@@ -90,3 +96,5 @@ class Routes:
     # # in the application_data.py - removes a truck from the existing route when end location has been reached (attribute: self._truck_routes = [])
     # def remove_truck_to_route():
     #     pass
+        
+    # commands to follow: create_route; show_route; update_route(add_package_to_route; add_truck_to_route; remove+package_from_route; remove_truck_from_route)
