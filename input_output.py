@@ -13,6 +13,11 @@
 # Output: Package with id: 1 has new updates - status: assigned, ETA: Melbourne (11/02 Sunday @ 18:00)!
 
 # Use case 2:
+# Many packages with total weight of 23000kg have gathered in the hub in Alice Springs
+# and an employee of the company uses the system to create a route that leaves on Sep 12th 06:00h with the following stops:
+# -Alice Springs → Adelaide → Melbourne → Sydney → Brisbane
+# The system determines the route distance to 4041km and calculates estimated arrival times for each of the locations based on a predefined average speed of 87km/h. 
+# The employee then finds a free truck that meets the required range and capacity and proceeds to bulk assign the packages to the newly created route by using the route id and the packages’ ids.
 # Input: CreateRoute date Alice Springs Adelaide Melbourne Sydney Brisbane
 # Output:
 # New route has been created:
