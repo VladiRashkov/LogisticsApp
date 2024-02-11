@@ -38,6 +38,19 @@
 # Output: Package with id: 24 has new updates - status: assigned, ETA: Adelaide (10/02 Saturday @ 20:00)!
 # Input: UpdateRoute id_package id_route
 # Output: Package with id: 24 has been added to route with id: 245!
+# Input: ShowTrucks capacity: 23000kg  max_range: 4041  truck_status date
+# Output: 
+# TruckID: 1036, capacity: 26000, max_range: 13000 km, status: available, date: 09/02 Friday @ 10:00
+# TruckID: 1022, capacity: 37000, max_range: 10000 km, status: available, date: 11/02 Synday @ 12:00 
+# TruckID: 1011, capacity: 42000, max_range: 8000 km, status: available, date: 08/02 Thursday @ 08:00 
+# Input: UpdateRoute truck_id route_id
+# Outpu: Truck with id: 1036 has been added to route with id: 245!
+# Input: UpdateTruck truck_id status ETA
+# Output: Truck with id: 1036 has new updates - status: unavailable, final ETA: Brisbane (13/02 Tuesday @ 14:00)!
+# Input: UpdatePackage id_package status ETA 
+# Output: Package with id: 24 has new updates - status: assigned, ETA: Adelaide (10/02 Saturday @ 20:00)!
+# Input: UpdateRoute id_package id_route
+# Output: Package with id: 24 has been added to route with id: 245!
 
 # Use case 3:
 # Input: InfoRoutesInProgress date
