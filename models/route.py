@@ -60,81 +60,12 @@ class Route:
                 f'Start date: {self.start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
                 f'Final ETA: {self.final_eta()}')
 
-route1 = Route('Alice Springs', ['Adelaide', 'Melbourne', 'Sydney', 'Bristbane'])
-print(route1.to_string())
-route2 = Route('Melbourne', ['Sydney', 'Bristbane'])
-print(route2.to_string())
+# examples:
+# route1 = Route('Alice Springs', ['Adelaide', 'Melbourne', 'Sydney', 'Bristbane'])
+# print(route1.to_string())
+# route2 = Route('Melbourne', ['Sydney', 'Bristbane'])
+# print(route2.to_string())
 
-
-    # # old code:
-    # def __init__(self, start_location: Locations, other_location: Locations) -> None:
-    #     self.route_id = Route.next_id()
-    #     self._id = id  # check how to not mess up 
-    #     self._locations = []
-    #     # self._start_date_time = datetime.today()
-
-    #     # self._package = []  # to follow how to connect with model packages.py
-    #     # self._truck = []  # to follow how to connect with model truck.py
-
-    # @property
-    # def id(self):
-    #     return self._id
-    
-    # @property
-    # def start_location(self):
-    #     return self._start_location
-    
-    # @start_location.setter
-    # def start_location(self, value):
-    #     if value not in Locations.locations:
-    #         raise ValueError('Please enter a supported location!')
-        
-    #     self._start_location = value
-    
-    # @property
-    # def end_location(self):
-    #     return self._end_location
-    
-    # @end_location.setter
-    # def end_location(self, value):
-    #     if value not in Locations.locations:
-    #         raise ValueError('Please enter a supported location!')
-        
-    #     self._end_location = value
-    
-    # @property
-    # def other_locations(self):
-    #     return tuple(self._other_locations)
-    
-    
-    # def add_other_location(self, location):
-    #     if location not in Locations.locations:
-    #         raise ValueError('Please enter a supported location!')
-        
-    #     self._other_locations.append(location)
-
-    # def date_time(): # not sure about this
-    #     start_date_time = datetime.today()
-    #     change_hour = start_date_time.replace(hour=6)
-    #     change_minutes = change_hour.replace(minute=00)
-    #     start_date_time = change_minutes + timedelta(days=1)
-        
-    #     return start_date_time.strftime('%d/%m %A @ %H:%M')
-    
-    
-    # def next_date_time():
-    #     start_date_time = datetime.today()
-    #     change_hour = start_date_time.replace(hour=6)
-    #     change_minutes = change_hour.replace(minute=00)
-    #     start_date_time = change_minutes + timedelta(days=1)
-    #     start_date_time += timedelta(hours=10)
-
-    #     return start_date_time.strftime('%d/%m %A @ %H:%M')
-
-
-    # # string that shows a list of the scheduled routes
-    # def info_route(self):
-    #     pass
 
     # # in the application_data.py - appends a route to the schedule if the route hasn't been created already (attribute: self._routes = [])
     # def create_route():
