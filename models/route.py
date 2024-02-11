@@ -23,6 +23,8 @@ class Route:
         self.other_locations = other_locations
         self.route_id = Route.next_id()
         self.start_date_time = Route.next_date()
+        # self._trucks = [] # not sure yet if this will be here
+        # self._packages = [] # not sure yet if this will be here
 
     def distance(self):
         distance = 0
@@ -42,8 +44,14 @@ class Route:
             date_time += timedelta(hours=locations_time)
             current_location = location
             return date_time.strftime('%d/%m %A @ %H:%M')
-        
-    def to_string(self):
+    
+    # def add_truck(self):  # not sure if this will be here
+    #     pass
+    
+    # def add_package(self):  # not sure if this will be here
+    #     pass
+
+    def to_string(self):  # there will be changes for this method!
         date_time = self.start_date_time
         current_location = self.start_location 
         locations_list = []
@@ -65,34 +73,3 @@ class Route:
 # print(route1.to_string())
 # route2 = Route('Melbourne', ['Sydney', 'Bristbane'])
 # print(route2.to_string())
-
-
-    # # in the application_data.py - appends a route to the schedule if the route hasn't been created already (attribute: self._routes = [])
-    # def create_route():
-    #     pass
-
-    # # in the application_data.py - if the route we are looking for doeasn't exist it will show an error and that means we have to create one (attribute: self._routes = [])
-    # def show_route(): 
-    #     pass
-
-    # # in the application_data.py - checks if the route we are looking for exists (attribute: self._routes = [])
-    # def is_route_scheduled(): 
-    #     pass 
-    
-    # # in the application_data.py - appends a package to an existing route (attribute: self._package_routes = [])
-    # def add_package_to_route():
-    #     pass
-
-    # # in the application_data.py - removes a package from the existing route when end location has been reached (attribute: self._package_routes = [])
-    # def remove_package_to_route():
-    #     pass
-
-    # # in the application_data.py - appends a truck to an existing route (attribute: self._truck_routes = [])
-    # def add_truck_to_route():
-    #     pass
-
-    # # in the application_data.py - removes a truck from the existing route when end location has been reached (attribute: self._truck_routes = [])
-    # def remove_truck_to_route():
-    #     pass
-        
-    # commands to follow: create_route; show_route; update_route(add_package_to_route; add_truck_to_route; remove+package_from_route; remove_truck_from_route)
