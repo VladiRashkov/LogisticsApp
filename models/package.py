@@ -1,12 +1,17 @@
-
+from models.user import User
+from models.route import Route
 class Package():
+    _id_counter = 1
 
-    def __init__(self, id: int, start, end, weight:int, contact_info:str):
-        self.id = id
+
+    def __init__(self, start, end, weight: int, user:User):
+        Package._id_counter +=1
+        self.id = Package._id_counter
         self.start = start
         self.end = end
         self.weight = weight
-        self.contact_info = contact_info
+        self.user = user
+        #self.route: None| Route = route
 
 
     @property
@@ -29,11 +34,9 @@ class Package():
             raise ValueError("Weight must be a positive number")
         self._weight = value
 
-    def to_dict(self):
-            return {
-                "ID": self.id,
-                "Start": str(self.start),
-                "End": str(self.end),
-                "Weight": self.weight,
-                "Contact Info": self.contact_info
-                }
+    def __str__(self):
+                    return (f"ID: {self.id}, "
+                            f"Start: {str(self.start)}, "
+                            f"End: {str(self.end)}, "
+                            f"Weight: {self.weight}, "
+                            f"Contact Info: {self.user}")
