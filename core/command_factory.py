@@ -1,4 +1,5 @@
 from commands.add_package import AddPackageCommand
+from commands.create_route import CreateRouteCommand
 from core.application_data import ApplicationData
 
 class CommandFactory:
@@ -10,4 +11,7 @@ class CommandFactory:
 
         if cmd.lower() == "addpackage":
             return AddPackageCommand(params, self._app_data)
-        return None
+        if cmd.lower() == "createroute":
+            return CreateRouteCommand(params, self._app_data)
+        
+        raise ValueError(f'Invalid command name: {cmd}!')
