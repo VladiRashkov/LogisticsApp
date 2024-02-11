@@ -98,8 +98,6 @@ RouteID: #1
 Input: AddPakcageToRoute idpackage idroute
 Output: PackageID: #24 has been added to RouteID: #1!
 
-Use case 3: not ready yet - changes to follow
-
-Use case 4: not ready yet - changes to follow
-
-Use case 5: not ready yet - changes to follow
+Use case 3: not ready yet 
+Use case 4: not ready yet 
+Use case 5: not ready yet
