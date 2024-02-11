@@ -1,4 +1,5 @@
 from commands.add_package import AddPackageCommand
+from commands.add_truck_to_route import AddTruckToRoute
 from core.application_data import ApplicationData
 
 class CommandFactory:
@@ -10,4 +11,6 @@ class CommandFactory:
 
         if cmd.lower() == "addpackage":
             return AddPackageCommand(params, self._app_data)
+        if cmd.lower() == "addtrucktoroute":
+            return AddTruckToRoute(params, self._app_data)
         return None
