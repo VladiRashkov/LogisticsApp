@@ -14,7 +14,7 @@ class AddPackageCommand():
         start = self._params[0]
         end = self._params[1]
         weight = try_parse_int(self._params[2])
-        package = Package(package_id, start, end, weight)
+        package = Package(package_id, start, end, weight) # remove package ID
         self.app_data.add_package(package)
 
         return f"Package {package_id} from {start} to {end}, {weight} kg accepted in {start} Hub."
