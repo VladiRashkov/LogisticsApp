@@ -20,18 +20,13 @@ class Route:
         cls.start_date_time = replace_minute + timedelta(days=1)
         return cls.start_date_time
     
-    def __init__(self, strat_location: Locations, *other_locations: Locations) -> None:
+    def __init__(self , strat_location: Locations, *other_locations: Locations) -> None:
         self.start_location = strat_location
         self.other_locations = other_locations
         self.route_id = Route.next_id()
         self.start_date_time = Route.next_date()
-        self._trucks = [] # not sure yet if this will be here
+        self._truck = None # not sure yet if this will be here
         self._packages = [] # not sure yet if this will be here
-
-    
-    @property
-    def trucks(self):
-        return tuple(self._trucks)
     
     @property
     def packages(self):
@@ -69,8 +64,8 @@ class Route:
             current_location = location
             return date_time.strftime('%d/%m %A @ %H:%M')
     
-    def add_truck(self, truck: Truck):  # not sure yet if this will be here
-        self._trucks.append(truck)
+    def truck(self, truck: Truck):  # not sure yet if this will be here
+        pass
 
     def add_package(self, package: Package):  # not sure yet if this will be here
         self._packages.append(package)
@@ -87,3 +82,5 @@ route1 = Route('Alice Springs', 'Adelaide', 'Melbourne', 'Sydney', 'Bristbane')
 print(route1.route_info())
 route2 = Route('Melbourne', 'Sydney', 'Bristbane')
 print(route2.route_info())
+
+# changes to be commited now 
