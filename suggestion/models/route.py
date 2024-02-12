@@ -64,7 +64,7 @@ class Route:
             current_location = location
             return date_time.strftime('%d/%m %A @ %H:%M')
     
-    def truck(self):  # not sure yet if this will be here
+    def truck(self, truck: Truck):  # not sure yet if this will be here
         pass
 
     def add_package(self, package: Package):  # not sure yet if this will be here
