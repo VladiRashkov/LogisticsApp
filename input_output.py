@@ -22,24 +22,24 @@
 # Package status: unassigned
 # Entry date: 09/02 Friday @ 11:30
 
-# Input: ShowRoutes Sydney Melbourne date capacity weight truckstatus
+# Input: SearchRoutes Sydney Melbourne date capacity weight truckstatus
 # Output: 
 # RouteID: #1 
 # Locations: Brisbane (10/02 Saturday @ 06:00) → Sydney (10/02 Saturday @ 20:00) → Melbourne (11/02 Sunday @ 18:00)
+# TruckID: #1005
 # Truck capacity: 10 100
 # Truck status: available
-# TruckID: #1005
 # ==============
 # RouteID: #2 
 # Locations: Sydney (12/02 Monday @ 06:00) → Melbourne (12/02 Monday @ 20:00) → Adelaide (13/02 Tuesday @ 15:00)
+# TruckID: #1025
 # Truck capacity: 20 150
 # Truck status: available
-# TruckID: #1025
 
 # Input: AddPakcageToRoute idpackage idroute
 # Output: PackageID: #1 has been added to RouteID: #1!
 
-# Input: UpdatePackage id status ETA 
+# Input: UpdatePackage idpackage status ETA idroute
 # Output: 
 # PackageID: #1
 # Weight: 45 kg 
@@ -47,7 +47,7 @@
 # End location: Melbourne 
 # Package status: assigned
 # Entry date: 09/02 Friday @ 11:30
-# Final ETA: 11/02 SUnday @ 17:00
+# Final ETA: 11/02 Snnday @ 17:00
 # RouteID: #1
 
 # Use case 2:
@@ -66,7 +66,7 @@
 # Start date: 10/02 Saturday @ 06:00
 # Final ETA: 13/02 Tuesday @ 14:00
 
-# Input: ShowTrucks capacity range truckstatus
+# Input: SearchTrucks capacity range truckstatus
 # Output: 
 # TruckID: 1036 
 # Capacity: 26000 kg
@@ -99,5 +99,22 @@
 # Output: PackageID: #24 has been added to RouteID: #1!
 
 # Use case 3: not ready yet - changes to follow
+# Input: InfoRoutesInProgress date
+# Output: List of routes:
+# RouteID: #1 Brisbane (10/02 Saturday @ 06:00) → Sydney (10/02 Saturday @ 20:00) → Melbourne (11/02 Sunday @ 18:00)
+# Delivery weight: 15000 kg
+# Current ETA: Sydney (10/02 Saturday @ 20:00)
+
 # Use case 4: not ready yet - changes to follow
+# Input: InfoPackagesUnassigned 
+# Output: PackageID: 263, status: unassigned, location: Sydney, registered: 09/02 Friday @ 11:30
+
 # Use case 5: not ready yet - changes to follow
+# Input: InfoPackage package_id date
+# Output: 
+# PackageID: 1;
+# Registered: 09/02 Friday @ 11:30;
+# Weight: 45kg; 
+# Start location: Sydney, End location: Brisbane; 
+# Current ETA: Melbourne (10/02 Saturday @ 18:00);
+# Final ETA: Brisbane (11/02 Sunday @ 20:00).
