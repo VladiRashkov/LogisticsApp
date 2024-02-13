@@ -1,7 +1,6 @@
+# import random
 from datetime import datetime, timedelta
-from locations import Locations
-from truck import Truck 
-from package import Package
+from constants.locations import Locations
 
 class Route:
     id = 0
@@ -25,12 +24,6 @@ class Route:
         self.other_locations = other_locations
         self.route_id = Route.next_id()
         self.start_date_time = Route.next_date()
-        self._truck = None # not sure yet if this will be here
-        self._packages = [] # not sure yet if this will be here
-    
-    @property
-    def packages(self):
-        return tuple(self._packages)
 
     def locations(self):
         date_time = self.start_date_time
@@ -64,23 +57,9 @@ class Route:
             current_location = location
             return date_time.strftime('%d/%m %A @ %H:%M')
     
-    def truck(self, truck: Truck):  # not sure yet if this will be here
-        pass
-
-    def add_package(self, package: Package):  # not sure yet if this will be here
-        self._packages.append(package)
-    
     def route_info(self):  
         return (f'RouteID: #{self.route_id}\n'
                 f'Locations: {self.locations()}\n'
                 f'Total distance: {self.distance()} km\n'
                 f'Start date: {self.start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
                 f'Final ETA: {self.final_eta()}')
-
-# examples:
-route1 = Route('Alice Springs', 'Adelaide', 'Melbourne', 'Sydney', 'Bristbane')
-print(route1.route_info())
-route2 = Route('Melbourne', 'Sydney', 'Bristbane')
-print(route2.route_info())
-
-# changes to be commited now 
