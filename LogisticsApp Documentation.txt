@@ -29,9 +29,6 @@ Package status: unassigned (unassigned => assigned => in progress)
 RouteID: Package is still unassigned.
 TruckID: Package is still unassigned.
 
-
-
-
 Input: ShowRoute 
 Output:
 RouteID: 1
@@ -140,6 +137,8 @@ Package final ETA: 17/02 Saturday @ 07:00
 Package status: assigned
 RouteID: 2
 TruckID: 1026
+
+
 Use case #2
 Many packages with total weight of 23000kg have gathered in the hub in Alice Springs and an employee of the company uses the system to create a route that leaves on Sep 12th 06:00h with the following stops:
 Alice Springs → Adelaide → Melbourne → Sydney → Brisbane
@@ -202,14 +201,6 @@ Truck status: available
 PackageID: 2, 6, 10, 11, 12
 ===============
 
-
-
-
-
-
-
-
-
 Input: ShowHubs
 Output: 
 Adelaide weight: 15 650 kg
@@ -244,7 +235,6 @@ Route start date: 10/02 Saturday @ 06:00
 Route final ETA: 13/02 Tuesday @ 14:00
 PackageID: 26, 85, 49, 7, 26, 75, 59, 4, 94, 26, 85, 49, 7
 
-
 Input: ShowTrucks
 Output:
 TruckID: 1007
@@ -278,7 +268,6 @@ PackageID: 26, 85, 49, 7, 26, 75, 59, 4, 94, 26, 85, 49, 7
 TruckID: 1007
 Truck route -capacity: 30 945 kg
 Truck status: available
-
 
 Input: AddPackageToRoute RouteId PackageId weight
 Output: Package with ID: 21 has been added to route with ID: 25!
@@ -327,6 +316,7 @@ Truck complete availability after: 16/02 Friday @ 06:00 - 17/02 Saturday @ 07:00
 RouteID: 25
 PackageID: 2, 6, 10, 11, 12, 21, 22
 
+
 Use case #3:
 A manager at the company uses the system to find information about all delivery routes in progress. The system responds with information that contains each route’s stops, delivery weight, and the expected current stop based on the time of the day.
 
@@ -349,6 +339,7 @@ Route final ETA: 18/02 Sunday @ 04:00
 Route current ETA:  18/02 Sunday @ 04:00
 ===============
 
+
 Use case #4:
 A supervising employee uses the system to view information about each package that is not yet assigned to a delivery route. The system responds with a list of packages containing their IDs and locations
 
@@ -363,6 +354,7 @@ Package start location: Melbourne
 PackageID: 2
 Package start location: Alice Springs
 ===============
+
 
 Use case #5:
 A customer contacts the office to request information about their package. The customer provides the id that they received when the package was created, and an employee enters the package id in the system. It responds with detailed information which is then emailed to the customer.
@@ -380,8 +372,6 @@ Package final ETA: 17/02 Saturday @ 07:00
 Package status: assigned
 RouteID: 2
 TruckID: 1026
-
-
 
 Input: EmailPackage PackageId PackaageStartLocation TruckId RouteId PackageEndLocation PackageFinalETA
 Output:
