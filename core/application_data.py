@@ -1,10 +1,12 @@
 from models.package import Package
 from models.route import Route
+from models.truck import Truck
 
 class ApplicationData:
     def __init__(self):
         self._packages: list[Package] = []
         self._routes: list[Route] = []
+        self._trucks: list [Truck] = []
 
     @property
     def packages(self):
