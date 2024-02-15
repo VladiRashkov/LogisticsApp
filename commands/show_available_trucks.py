@@ -4,23 +4,31 @@
 
 from core.application_data import ApplicationData
 from models.truck import Truck
+from models.constants.truck_status import TruckStatus
 
 
-class Truck_Info:
+class ShowAvailableTrucks: #shows available trucks for route
         def __init__(self, params, app_data = ApplicationData):
                 self.params = params
                 self.app_data = app_data
 
-        def execute(self, package_weight, routes):
+        def execute(self):      #(package_weight, range)
                 available_trucks = []
                 for truck in self.app_data._trucks:
-                        if truck.free_capacity > package_weight:
-                                pass #logic for loading the truck or select the truck
-                        if truck.range > routes.distance:
-                                pass # logic for routes.distance/km 
+                        if not TruckStatus.FREE:
+                                raise ValueError(f'Truck with {truck.id} is Busy')
+                        # if truck.free_capacity > package_weight:
+                        #         pass #logic for loading the truck or select the truck
+                        #         if truck.range > routes.distance:
+                        #                 pass # logic for routes.distance/km 
                         available_trucks.append(truck.id) #not sure about the truck.id how should it work
                         
                 for truck in available_trucks:
                         print(f'{truck.id}, {truck.name} \n {truck.capacity}, {truck.range}\n is available for this route!')
 
+        
+        def calculate_free_space(self):
+                pass
+        def calculate_range(self) -> bool:
+                pass
                 
