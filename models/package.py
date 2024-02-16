@@ -11,10 +11,6 @@ class Package:
         self.end = end
         self.weight = weight
         self.status = Statuses.UNASSIGNED
-        #self.user = user
-        #self.route: None| Route = route
-        #add status of the package
-        #1234
 
     @property
     def id(self):

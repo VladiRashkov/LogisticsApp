@@ -8,7 +8,7 @@ from models.constants.truck_status import TruckStatus
 
 
 class FindTrucks: #shows available trucks for route
-        def __init__(self, params, app_data = ApplicationData):
+        def __init__(self, params, app_data: ApplicationData):
                 self.params = params
                 self.app_data = app_data
 
@@ -19,7 +19,7 @@ class FindTrucks: #shows available trucks for route
                 for truck in self.app_data._trucks:
                         if truck._status != TruckStatus.FREE:
                                 raise ValueError(f'Truck with {truck._truck_id} is Busy')
-                        
-                        available_trucks.append(truck)     
-                print(f'Available trucks: {available_trucks}')
-                return available_trucks
+                        trucks = truck.to_string()
+                        available_trucks.append(str(trucks))  
+                trucks_str = '\n'.join(available_trucks)   
+                print(f'Available trucks: {trucks_str}')
