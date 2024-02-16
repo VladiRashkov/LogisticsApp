@@ -12,7 +12,7 @@ class ShowTrucks:
 
     def execute(self):
         self._app_data = ApplicationData()
-        for truck in range(1001, 1041):
+        for truck in range(1001, 1003):
             new_truck = Truck()
             # new_truck._truck_id = truck_id
             self._app_data._trucks.append(new_truck)
