@@ -3,6 +3,8 @@ from commands.add_truck_to_route import AddTruckToRoute
 from core.application_data import ApplicationData
 from commands.create_route import CreateRouteCommand
 from commands.register_customer import RegisterCustomer
+from commands.show_available_trucks import ShowAvailableTrucks
+from commands.show_trucks import ShowTrucks
 
 class CommandFactory:
     def __init__(self, data: ApplicationData):
@@ -19,5 +21,9 @@ class CommandFactory:
             return AddTruckToRoute(params, self._app_data)
         if cmd.lower() == "createroute":
             return CreateRouteCommand(params, self._app_data)
+        if cmd.lower() == "showtruck":
+            return ShowTrucks(params, self._app_data)
+        if cmd.lower() == "showavailabletrucks":
+            return ShowAvailableTrucks(params, self._app_data)
         
         raise ValueError(f'Invalid command name: {cmd}!')

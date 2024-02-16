@@ -10,9 +10,10 @@ class Package:
         self.start = start
         self.end = end
         self.weight = weight
-        self._status = Statuses.unassigned
-        # self.ETA = None #15 Febraury
-        # self.route: None| Route = route
+        self.status = Statuses.UNASSIGNED
+        #self.user = user
+        #self.route: None| Route = route
+        #add status of the package
 
 
     @property
@@ -36,9 +37,9 @@ class Package:
         self._weight = value
 
 
-    def __str__(self):
-                    return (f"ID: {self.id}, "
-                            f"Start: {str(self.start)}, "
-                            f"End: {str(self.end)}, "
-                            f"Weight: {self.weight}, "
-                            f"Contact Info: {self.user}")
+    def to_list(self):
+                    return [self.id, self.start, self.end, self.weight]
+
+
+
+
