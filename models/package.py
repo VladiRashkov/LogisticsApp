@@ -1,6 +1,7 @@
 from models.user import User
 from models.route import Route
 from models.constants.statuses import Statuses
+from datetime import datetime
 class Package:
     _id_counter = 1
 
@@ -11,10 +12,11 @@ class Package:
         self.end = end
         self.weight = weight
         self.status = Statuses.UNASSIGNED
+        self.date = datetime.now().strftime('%d/%m %A @ %H:%M')
         #self.user = user
         #self.route: None| Route = route
         #add status of the package
-        #1234
+
 
     @property
     def id(self):
