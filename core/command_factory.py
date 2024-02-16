@@ -21,7 +21,7 @@ class CommandFactory:
             return AddTruckToRoute(params, self._app_data)
         if cmd.lower() == "createroute":
             return CreateRouteCommand(params, self._app_data)
-        if cmd.lower() == "showtruck":
+        if cmd.lower() == "showtrucks":
             return ShowTrucks(params, self._app_data)
         if cmd.lower() == "showavailabletrucks":
             return ShowAvailableTrucks(params, self._app_data)

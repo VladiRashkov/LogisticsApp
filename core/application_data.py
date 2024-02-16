@@ -1,8 +1,6 @@
 from models.package import Package
 from models.route import Route
 from models.truck import Truck
-from commands.show_trucks import ShowTrucks
-from commands.show_available_trucks import ShowAvailableTrucks
 
 
 class ApplicationData:
