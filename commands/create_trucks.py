@@ -4,7 +4,7 @@ from models.truck import Truck
 from models.constants.truck_type import TruckType
 
 
-class ShowTrucks:
+class CreateTrucks:
     
     def __init__(self, params, app_data=ApplicationData):
         self._app_data = app_data
