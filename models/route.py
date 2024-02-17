@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from models.location import Location
 from models.status import Status
-from models.pakcage import Package
+from models.package import Package
 from models.truck import Truck
 
 class Route:
