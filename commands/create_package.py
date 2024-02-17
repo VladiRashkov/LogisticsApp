@@ -15,13 +15,7 @@ class CreatePackageCommand():
         end = self._params[1]
         weight = try_parse_int(self._params[2])
         package = Package(start, end, weight)
-        date_assigned = datetime.datetime.now()
-        status = Statuses.ASSIGNED
-        comp_package = package.to_list()
-        comp_package.append(date_assigned)
-        comp_package.append(status)
 
-
-        self.app_data.add_package(comp_package)
+        self.app_data.add_package(package)
 
         return f"Package {package_id} from {start} to {end}, {weight} kg accepted in {start} Hub."

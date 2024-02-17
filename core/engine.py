@@ -14,8 +14,8 @@ class Engine:
 
             command = self._command_factory.create(input_line)
             output.append(command.execute())
-            print(*output)
-
+            
+        print(*output)
         print("\n".join(output))
 
 # line 17: print(*output) - indentation

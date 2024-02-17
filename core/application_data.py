@@ -27,7 +27,7 @@ class ApplicationData:
     def create_route(self, route: Route):
         self._routes.append(route)
 
-    def show_trucks(self, truck: Truck):
+    def create_trucks(self, truck: Truck):
         self._trucks.append(truck)
     
     
