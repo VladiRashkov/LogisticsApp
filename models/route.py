@@ -1,29 +1,44 @@
-# import random
 from datetime import datetime, timedelta
-from models.locations import Locations
+from models.location import Location
+from models.status import Status
+from models.pakcage import Package
+from models.truck import Truck
 
 class Route:
-    id = 0
-
-    @classmethod
-    def next_id(cls):
-        cls.id += 1
-        return cls.id
     
     start_date_time = datetime.today()
 
     @classmethod
-    def next_date(cls):
+    def next_date_time(cls):
         replace_hour = cls.start_date_time.replace(hour=6)
         replace_minute = replace_hour.replace(minute=00)
         cls.start_date_time = replace_minute + timedelta(days=1)
         return cls.start_date_time
     
-    def __init__(self , strat_location: Locations, *other_locations: Locations) -> None:
-        self.start_location = strat_location
-        self.other_locations = other_locations
-        self.route_id = Route.next_id()
-        self.start_date_time = Route.next_date()
+    def __init__(self, id: int, strat_location: Location, *other_locations: Location) -> None:
+        self._id = id
+        self._start_location = strat_location
+        self._other_locations = other_locations
+        self._start_date_time = Route.next_date_time()
+        self._status = Status.OPEN
+        self._package_ids: list[Package] = [] # to follow
+        self._truck_id = None  # to follow
+
+    @property
+    def id(self):
+        return self._id
+    
+    @property
+    def start_location(self):
+        return self._start_location
+    
+    @property
+    def other_locations(self):
+        return self._other_locations
+    
+    @property
+    def package_ids(self):
+        return tuple(self._package_ids)
 
     def locations(self):
         date_time = self.start_date_time
@@ -31,7 +46,7 @@ class Route:
         locations_list = []
         for location in self.other_locations:
             key_locations_time = f'{current_location}-{location}'
-            locations_time = Locations.locations_time[key_locations_time]
+            locations_time = Location.locations_time[key_locations_time]
             date_time += timedelta(hours=locations_time)
             locations_list.append(f'{location} {date_time.strftime('%d/%m %A @ %H:%M')}')
             current_location = location
@@ -43,46 +58,40 @@ class Route:
         current_location = self.start_location
         for location in self.other_locations:
             key_locations_distance = f'{current_location}-{location}'
-            distance += Locations.locations_distance[key_locations_distance]
+            distance += Location.locations_distance[key_locations_distance]
             current_location = location
         return distance
     
-    def final_eta(self):
+    def eta(self):
         date_time = self.start_date_time
         current_location = self.start_location
         for location in self.other_locations:
             key_locations_time = f'{current_location}-{location}'
-            locations_time = Locations.locations_time[key_locations_time]
+            locations_time = Location.locations_time[key_locations_time]
             date_time += timedelta(hours=locations_time)
             current_location = location
             return date_time.strftime('%d/%m %A @ %H:%M')
-    
-    def route_info(self):  
-        return (f'RouteID: #{self.route_id}\n'
-                f'Locations: {self.locations()}\n'
-                f'Total distance: {self.distance()} km\n'
-                f'Start date: {self.start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
-                f'Final ETA: {self.final_eta()}')
-    
-# example 2: creating a random schedule 
-import random
 
-# locations = ['Adelaide', 'Melbourne', 'Sydney', 'Bristbane', 'Alice Springs', 'Darwin', 'Perth']
+    def add_packages(self): # def add_packages(self, package: Package):
+        # self.packages.append(package)
+        return f'Package is still unassigned.'
 
-cities = Locations.locations
+    def capacity(self):
+        return f'Capacity is still uncalculated.'
     
-start_index = random.randint(0, 4)  
-end_index = random.randint(5, 6) + 1    
-cities = cities[start_index:end_index]
-
-num_cities = random.randint(2, len(cities))  
-num_routes = random.randint(1, 7)  
+    def change_status(self):
+        self.status = Status.next_route_status(self.status)
     
-scheduled_routes = []
-for _ in range(num_routes):
-    selected_cities = random.sample(population=cities, k=num_cities)
-    route = Route(*selected_cities)
-    scheduled_routes.append(route)
-
-for route in scheduled_routes:
-    print(route.route_info())
+    def add_truck(self):
+            return f'Truck is still unassigned.'
+    
+    def view_route(self):  
+        return (f'RouteID: {self._id}\n'
+                f'Route status: {self._status}\n'
+                f'Route locations: {self.locations()}\n'
+                f'Route total distnce: {self.distance()} km\n'
+                f'Route capacity: {self.capacity()}\n'
+                f'Route start date: {self._start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
+                f'Route final ETA: {self.eta()}\n'
+                f'PackageID: {self.add_packages()}\n'  # f'PackageID: {','.join({package_id} for package in self.package_ids)}\n'
+                f'TruckID: {self.add_truck()}')  # f'TruckID: {self.truck_id}\n'
