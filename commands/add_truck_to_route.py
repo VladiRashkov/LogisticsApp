@@ -1,7 +1,12 @@
-# command - adding a truck to route to follow
+from core.application_data import ApplicationData
+from commands.base_command import BaseCommand
 
-# if truck is found assign it to the route
-from models.route import Route
+class AddTruckToRouteCommand(BaseCommand):
+    def __init__(self, params: list[str], app_data: ApplicationData):
+        super().__init__(params, app_data)
 
-class AddTruckToRoute:
-    pass
+    def execute(self):
+       pass
+
+# Input: AddTruckToRoute RouteId TruckId  (2 params)
+# Output: Truck with ID: 1007 has been added to route with ID: 25!
