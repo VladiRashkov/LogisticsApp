@@ -21,10 +21,8 @@ class Route:
         self._other_locations = other_locations
         self._start_date_time = Route.next_date_time()
         self._status = Status.OPEN
-        self._package_ids: list[Package] = [] # to follow - add ids in a list
-        self._package_weights: list[Package] = []
-        self._truck_id = None  # to follow - pick a truck depending on truck's max range; None = truck_id / add error if truck range is smaller than route range 
-        self._truck_capacity = None # None = truck_capacity
+        self._packages: list[Package] = []
+        self._truck: Truck = None  
 
     @property
     def id(self):
@@ -39,8 +37,8 @@ class Route:
         return self._other_locations
     
     @property
-    def package_ids(self):
-        return tuple(self._package_ids)
+    def packages(self):
+        return tuple(self._packages)
 
     def locations(self):
         date_time = self.start_date_time
@@ -73,29 +71,39 @@ class Route:
             date_time += timedelta(hours=locations_time)
             current_location = location
             return date_time.strftime('%d/%m %A @ %H:%M')
-
-    def add_packages(self):
-        return f'Package is still unassigned.'
-    
-    def add_packages(self, package_id: Package):
-        self._package_ids.append(package_id)
-
-    def capacity(self):
-        return f'Capacity is still uncalculated.'
     
     def change_status(self):
         self.status = Status.next_route_status(self.status)
+
+    def add_packages(self, package: Package): 
+        self._packages.append(package)
     
-    def add_truck(self):
-            return f'Truck is still unassigned.'
-    
-    def view_route(self):  
-        return (f'RouteID: {self._id}\n'
-                f'Route status: {self._status}\n'
-                f'Route locations: {self.locations()}\n'
-                f'Route total distnce: {self.distance()} km\n'
-                f'Route capacity: {self.capacity()}\n'
-                f'Route start date: {self._start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
-                f'Route final ETA: {self.eta()}\n'
-                f'PackageID: {self.add_packages()}\n'  # f'PackageID: {','.join({package_id} for package in self.package_ids)}\n'
-                f'TruckID: {self.add_truck()}')  # f'TruckID: {self.truck_id}\n'
+    def add_truck(self, truck: Truck):
+        range = Route.distance()
+        capacity = sum(package.weight for package in self._packages)
+        if range < truck._range and capacity < truck._capacity:
+            self._truck = truck._truck_id
+        
+    def view_route(self):
+        package_ids = [f'{package.id}' for package in self._packages]
+        package_weights = sum(package.weight for package in self._packages)
+        if len(package_ids) == 0 and self._truck == None:
+            return (f'RouteID: {self._id}\n'
+                    f'Route status: {self._status}\n'
+                    f'Route locations: {self.locations()}\n'
+                    f'Route total distnce: {self.distance()} km\n'
+                    f'Route capacity: No packages assigned.\n'
+                    f'Route start date: {self._start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
+                    f'Route final ETA: {self.eta()}\n'
+                    f'PackageID: No packages assigned.\n'  
+                    f'TruckID: No truck assigned.')
+        else:
+            return (f'RouteID: {self._id}\n'
+                    f'Route status: {Status.next_route_status(Status.OPEN)}\n'
+                    f'Route locations: {self.locations()}\n'
+                    f'Route total distnce: {self.distance()} km\n'
+                    f'Route capacity: {package_weights} kg\n'
+                    f'Route start date: {self._start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
+                    f'Route final ETA: {self.eta()}\n'
+                    f'PackageID: {package_ids}\n'  
+                    f'TruckID: {self._truck}')
