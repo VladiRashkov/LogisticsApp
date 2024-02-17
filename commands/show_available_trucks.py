@@ -13,6 +13,7 @@ class ShowAvailableTrucks: #shows available trucks for route
                 self.app_data = app_data
 
         def execute(self):      #(package_weight, range)
+                
                 available_trucks = []
                 for truck in self.app_data._trucks:
                         if not TruckStatus.FREE:
@@ -24,11 +25,13 @@ class ShowAvailableTrucks: #shows available trucks for route
                         available_trucks.append(truck.id) #not sure about the truck.id how should it work
                         
                 for truck in available_trucks:
-                        print(f'{truck.id}, {truck.name} \n {truck.capacity}, {truck.range}\n is available for this route!')
+                        
+                        print(truck.to_string)
 
-        
-        def calculate_free_space(self):
+        def available_to_string(self):
                 pass
-        def calculate_range(self) -> bool:
-                pass
+        # def calculate_free_space(self):
+        #         pass
+        # def calculate_range(self) -> bool:
+        #         pass
                 

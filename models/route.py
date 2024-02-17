@@ -1,6 +1,6 @@
 # import random
 from datetime import datetime, timedelta
-from locations import Locations
+from models.locations import Locations
 
 class Route:
     id = 0
