@@ -1,5 +1,4 @@
 from commands.create_package import CreatePackageCommand
-from commands.add_truck_to_route import AddTruckToRoute
 from commands.register_customer import RegisterCustomer
 from commands.find_trucks import FindTrucks
 from commands.create_trucks import CreateTrucks
@@ -26,8 +25,6 @@ class CommandFactory:
             return RegisterCustomer(params, self._app_data)
         if cmd.lower() == "createpackage":
             return CreatePackageCommand(params, self._app_data)
-        if cmd.lower() == "addtrucktoroute":
-            return AddTruckToRoute(params, self._app_data)
         if cmd.lower() == "createtrucks":
             return CreateTrucks(params, self._app_data)
         if cmd.lower() == "findtrucks":
