@@ -1,11 +1,10 @@
-from models.user import User
-from models.route import Route
 from models.constants.statuses import Statuses
 from datetime import datetime
+from models.user import User
 class Package:
     _id_counter = 1
 
-    def __init__(self, start, end, weight: int):
+    def __init__(self, start, end, weight: int, user: User):
         self.id = Package._id_counter
         Package._id_counter += 1
         self.start = start
@@ -13,9 +12,12 @@ class Package:
         self.weight = weight
         self.status = Statuses.UNASSIGNED
         self.date = datetime.now().strftime('%d/%m %A @ %H:%M')
-        #self.user = user
+        self.user = user
         #self.route: None| Route = route
         #add status of the package
+
+    def __str__(self):
+        return f"Package {self.id}: from {self.start} to {self.end}, {self.weight} kg. Owner:{User}"
 
 
     @property
@@ -37,11 +39,3 @@ class Package:
         if value <= 0:
             raise ValueError("Weight must be a positive number")
         self._weight = value
-
-
-    def to_list(self):
-                    return [self.id, self.start, self.end, self.weight]
-
-
-
-
