@@ -21,8 +21,10 @@ class Route:
         self._other_locations = other_locations
         self._start_date_time = Route.next_date_time()
         self._status = Status.OPEN
-        self._package_ids: list[Package] = [] # to follow
-        self._truck_id = None  # to follow
+        self._package_ids: list[Package] = [] # to follow - add ids in a list
+        self._package_weights: list[Package] = []
+        self._truck_id = None  # to follow - pick a truck depending on truck's max range; None = truck_id / add error if truck range is smaller than route range 
+        self._truck_capacity = None # None = truck_capacity
 
     @property
     def id(self):
@@ -72,9 +74,11 @@ class Route:
             current_location = location
             return date_time.strftime('%d/%m %A @ %H:%M')
 
-    def add_packages(self): # def add_packages(self, package: Package):
-        # self.packages.append(package)
+    def add_packages(self):
         return f'Package is still unassigned.'
+    
+    def add_packages(self, package_id: Package):
+        self._package_ids.append(package_id)
 
     def capacity(self):
         return f'Capacity is still uncalculated.'
