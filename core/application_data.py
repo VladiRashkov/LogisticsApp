@@ -1,6 +1,7 @@
 from models.package import Package
 from models.route import Route
 from models.truck import Truck
+from models.user import User
 
 
 class ApplicationData:
@@ -8,6 +9,7 @@ class ApplicationData:
         self._packages: list[Package] = []
         self._routes: list[Route] = []
         self._trucks: list [Truck] = []
+        self.users = []
 
     @property
     def packages(self):
@@ -49,3 +51,6 @@ class ApplicationData:
         else:
             self._routes.remove(found_route)
             return True
+        
+    def add_user(self, user:User):
+        self.users.append(user)

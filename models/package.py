@@ -13,8 +13,7 @@ class Package:
         self.status = Statuses.UNASSIGNED
         self.date = datetime.now().strftime('%d/%m %A @ %H:%M')
         self.user = user
-        #self.route: None| Route = route
-        #add status of the package
+        
 
     def __str__(self):
         return f"Package {self.id}: from {self.start} to {self.end}, {self.weight} kg. Owner:{User}"
