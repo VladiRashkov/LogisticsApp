@@ -6,9 +6,7 @@ class Truck:
     Truck_ID = 1000
     
     def __init__(self): 
-        # from core.application_data import ApplicationData
-        # self._app_data = ApplicationData()
-        self._truck_id = Truck.create_id() #!
+        self._truck_id = Truck.create_id() 
         self._brand = ""
         self._status = TruckStatus.FREE
         self._capacity = 0
@@ -18,7 +16,6 @@ class Truck:
                 self._brand = truck_type["name"]
                 self._capacity = truck_type["capacity"]
                 self._range = truck_type["range"]
-                # self._app_data._trucks.append(self)
 
     @classmethod
     def create_id(cls):
