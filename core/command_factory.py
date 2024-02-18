@@ -8,17 +8,15 @@ from commands.add_truck_to_route import AddTruckToRouteCommand
 from commands.create_route import CreateRouteCommand
 from commands.remove_package_from_route import RemovePackageFromRouteCommand
 from commands.remove_truck_from_route import RemoveTruckFromRouteCommand
-from commands.search_route import SearchRouteCommand
+from commands.find_route import SearchRouteCommand
 from commands.update_route import UpdateRouteCommand
-from commands.view_route import ViewRouteCommand
+from commands.Info_route import ViewRouteCommand
 
 from core.application_data import ApplicationData
-from core.models_factory import ModelsFactory
 
 class CommandFactory:
     def __init__(self, data: ApplicationData):
         self._app_data = data
-        self._models_factory = ModelsFactory()
 
     def create(self, input_line):
         cmd, *params = input_line.split()
@@ -37,7 +35,7 @@ class CommandFactory:
         if cmd.lower() == 'addtrucktoroute':
             return AddTruckToRouteCommand(params, self._app_data)
         if cmd.lower() == 'createroute':
-            return CreateRouteCommand(params, self._app_data, self._models_factory)
+            return CreateRouteCommand(params, self._app_data)
         if cmd.lower() == 'removepackagefromroute':
             return RemovePackageFromRouteCommand(params, self._app_data)
         if cmd.lower() == 'removetruckfromroute':
