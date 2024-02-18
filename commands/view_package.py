@@ -9,16 +9,16 @@ class ViewPackage():
         status_to_check = self._params[0].capitalize()
 
         
-        if status_to_check == "Unassigned":
+        if status_to_check == 'Unassigned':
             unassigned = [str(package) for package in self._app_data.packages]
             return "\n".join(unassigned)
-        elif status_to_check =="Assigned":
+        elif status_to_check =='Assigned':
             assigned = [str(package) for package in self._app_data.packages]
             return "\n".join(assigned)
-        elif status_to_check == "In progress":
+        elif status_to_check == 'In progress':
             in_progress = [str(package) for package in self._app_data.packages]
             return "\n".join(in_progress)
-        elif status_to_check == "Delivered":
+        elif status_to_check == 'Delivered':
             delivered = [str(package) for package in self._app_data.packages]
             return "\n".join(delivered)
     #additionally takes the ETA from the route if it is assigned

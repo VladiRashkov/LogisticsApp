@@ -18,4 +18,4 @@ class CreatePackageCommand():
 
         self.app_data.add_package(package)
 
-        return f"Package {package_id} from {start} to {end} of the {username}, {weight} kg accepted in {start} Hub."
+        return f'Package {package_id} from {start} to {end} of the {username}, {weight} kg accepted in {start} Hub.'

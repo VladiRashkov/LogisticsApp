@@ -1,7 +1,6 @@
 from models.status import PackageStatus
 from datetime import datetime
-from models.user import User
-from models.route import Route
+
 
 
 class Package:
@@ -18,7 +17,7 @@ class Package:
         self.username = username
 
     def __str__(self):
-        return f"Package {self.id}: from {self.start} to {self.end}, {self.weight} kg. Owner:{self.username}"
+        return f'Package {self.id}: from {self.start} to {self.end}, {self.weight} kg. Owner:{self.username}'
         
     
     
@@ -29,7 +28,7 @@ class Package:
     @id.setter
     def id(self, value):
         if value <= 0:
-            raise ValueError("Invalid ID")
+            raise ValueError('Invalid ID')
         self._id = value
 
     @property
@@ -39,5 +38,5 @@ class Package:
     @weight.setter
     def weight(self, value):
         if value <= 0:
-            raise ValueError("Weight must be a positive number")
+            raise ValueError('Weight must be a positive number')
         self._weight = value

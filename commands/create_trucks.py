@@ -1,7 +1,7 @@
 from core.application_data import ApplicationData
-from models.truck_status import TruckStatus
+from models.status import TruckStatus
 from models.truck import Truck
-from models.truck_type import TruckType
+
 
 
 class CreateTrucks:

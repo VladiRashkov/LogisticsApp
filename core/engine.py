@@ -16,7 +16,7 @@ class Engine:
             output.append(command.execute())
             
         print(*output)
-        print("\n".join(output))
+        print('\n'.join(output))
 
 # line 17: print(*output) - indentation
 # line 19: delete 

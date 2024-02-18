@@ -16,10 +16,10 @@ class RouteStatus:
             return current
         
 class PackageStatus:
-    ASSIGNED  = "Assigned"
-    UNASSIGNED = "Unassigned"
-    INPROGRESS = "In progress"
-    DELIVERED = "Delivered"
+    ASSIGNED  = 'Assigned'
+    UNASSIGNED = 'Unassigned'
+    INPROGRESS = 'In progress'
+    DELIVERED = 'Delivered'
 
 class TruckStatus:
     FREE = 'Free'

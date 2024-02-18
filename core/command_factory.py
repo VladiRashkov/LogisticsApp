@@ -2,6 +2,8 @@ from commands.create_package import CreatePackageCommand
 from commands.register_customer import RegisterCustomer
 from commands.find_trucks import FindTrucks
 from commands.create_trucks import CreateTrucks
+from commands.update_truck import UpdateTruck
+from commands.info_truck import InfoTruck
 # Route:
 from commands.add_package_to_route import AddPackageToRouteCommand
 from commands.add_truck_to_route import AddTruckToRouteCommand
@@ -22,13 +24,13 @@ class CommandFactory:
     def create(self, input_line):
         cmd, *params = input_line.split()
 
-        if cmd.lower() == "registercustomer":
+        if cmd.lower() == 'registercustomer':
             return RegisterCustomer(params, self._app_data)
-        if cmd.lower() == "createpackage":
+        if cmd.lower() == 'createpackage':
             return CreatePackageCommand(params, self._app_data)
-        if cmd.lower() == "createtrucks":
+        if cmd.lower() == 'createtrucks':
             return CreateTrucks(params, self._app_data)
-        if cmd.lower() == "findtrucks":
+        if cmd.lower() == 'findtrucks':
             return FindTrucks(params, self._app_data)
         # Route:
         if cmd.lower() == 'addpackagetoroute':
@@ -49,5 +51,9 @@ class CommandFactory:
             return UpdateRouteCommand(params, self._app_data)
         if cmd.lower() == 'viewroute':
             return ViewRouteCommand(params, self._app_data)
+        if cmd.lower() == 'updatetruck':
+            return UpdateTruck(params, self._app_data)
+        if cmd.lower() == 'infotruck':
+            return InfoTruck(params, self._app_data)
         
         raise ValueError(f'Invalid command name: {cmd}!')
