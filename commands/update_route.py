@@ -10,5 +10,3 @@ class UpdateRouteCommand(BaseCommand):
 
 # Input: UpdateRoute RouteId (1 param)
 # Output: Route with ID: 25 has been updated with status: scheduled!
-    
-# changes to follow?
