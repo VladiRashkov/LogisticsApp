@@ -25,10 +25,13 @@ class ApplicationData:
     def create_trucks(self, truck: Truck):
         self._trucks.append(truck)
     
-    # for route needed - Elena
+    # for route:
     @property
     def routes(self):
         return tuple(self._routes)
+    
+    def add_route(self, route: Route):
+        self._routes.append(route)
 
     def find_route(self, id: int):
         for route in self._routes:
@@ -37,10 +40,7 @@ class ApplicationData:
 
         return None
 
-    def add_route(self, route: Route):
-        self._routes.append(route)
-
-    def remove_route(self, id: int):
+    def cancel_route(self, id: int): # for the route_update command???
         found_route = None
         for route in self._routes:
             if route.id == id:
@@ -51,6 +51,43 @@ class ApplicationData:
         else:
             self._routes.remove(found_route)
             return True
+    
+    def find_package(self, id: int):
+        for route in self._routes:
+            for package in route._packages:
+                if package.id == id:
+                    return package
+
+        return None
+    
+    def remove_package(self, id: int):
+        found_package = None
+        for route in self._routes:
+            for package in route._packages:
+                if package.id == id:
+                    found_package = package
+
+        if found_package is None:
+            return False
+        else:
+            self._routes.remove(found_package)
+            return True
         
-    def add_user(self, user:User):
-        self.users.append(user)
+    def find_truck(self, id: int):
+        for route in self._routes:
+            if route._truck == id:
+                return id
+
+        return None
+    
+    def remove_truck(self, id: int):
+        found_truck = None
+        for route in self._routes:
+            if route._truck == id:
+                found_truck = id
+
+        if found_truck is None:
+            return False
+        else:
+            self._routes.remove(found_truck)
+            return True
