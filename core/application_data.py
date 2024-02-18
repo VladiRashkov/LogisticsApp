@@ -9,18 +9,29 @@ class ApplicationData:
         self._packages: list[Package] = []
         self._routes: list[Route] = []
         self._trucks: list [Truck] = []
-        self.users = []
+        self._users = []
+        
+    #User
+    @property
+    def users(self):
+        return tuple(self._users)
+    
+    def add_user(self, user:User):
+        self.users.append(user)
 
+    #Package   
     @property
     def packages(self):
         return tuple(self._packages)
     
+    def add_package(self, package: Package):
+        self._packages.append(package)
+        
+    #Truck
     @property
     def trucks(self):
         return tuple(self._trucks)
 
-    def add_package(self, package: Package):
-        self._packages.append(package)
 
     def create_trucks(self, truck: Truck):
         self._trucks.append(truck)

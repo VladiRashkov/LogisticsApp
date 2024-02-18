@@ -4,7 +4,7 @@
 
 from core.application_data import ApplicationData
 from models.truck import Truck
-from models.constants.truck_status import TruckStatus
+from models.truck_status import TruckStatus
 
 
 class FindTrucks: #shows available trucks for route

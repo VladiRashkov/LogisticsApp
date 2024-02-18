@@ -1,6 +1,6 @@
 import unittest
 from models.truck import Truck
-from models.constants.truck_status import TruckStatus
+from models.truck_status import TruckStatus
 
 class Initializer_Should(unittest.TestCase):
 
