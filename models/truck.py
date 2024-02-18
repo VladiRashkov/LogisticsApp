@@ -1,4 +1,4 @@
-from truck_status import TruckStatus
+from models.status import TruckStatus
 from models.truck_type import TruckType
 
 
