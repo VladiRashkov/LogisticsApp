@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c9549ec-e402-4f1a-a831-b1e7d8652220" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/models/locations.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/locations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/route.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/route.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
