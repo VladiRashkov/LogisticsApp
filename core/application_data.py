@@ -36,7 +36,7 @@ class ApplicationData:
     def create_trucks(self, truck: Truck):
         self._trucks.append(truck)
     
-    # for route:
+    # Route:
     @property
     def routes(self):
         return tuple(self._routes)
@@ -46,7 +46,7 @@ class ApplicationData:
 
     def find_route(self, id: int):
         for route in self._routes:
-            if route.id == id:
+            if route._id == id:
                return route
 
         return None
@@ -54,7 +54,7 @@ class ApplicationData:
     def cancel_route(self, id: int): # for the route_update command???
         found_route = None
         for route in self._routes:
-            if route.id == id:
+            if route._id == id:
                found_route = route
 
         if found_route is None:
