@@ -1,4 +1,4 @@
-from models.package_statuses import Statuses
+from models.status import PackageStatus
 from datetime import datetime
 from models.user import User
 from models.route import Route
@@ -13,7 +13,7 @@ class Package:
         self.start = start
         self.end = end
         self.weight = weight
-        self.status = Statuses.UNASSIGNED
+        self.status = PackageStatus.UNASSIGNED
         self.date = datetime.now()
         self.username = username
 
