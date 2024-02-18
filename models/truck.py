@@ -1,5 +1,5 @@
-from models.constants.truck_status import TruckStatus
-from models.constants.truck_type import TruckType
+from truck_status import TruckStatus
+from models.truck_type import TruckType
 
 
 class Truck:
