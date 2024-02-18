@@ -5,29 +5,23 @@ from models.package import Package
 from models.truck import Truck
 
 class Route:
-    
+    id = 1
+
     start_date_time = datetime.today()
 
-    @classmethod
-    def next_date_time(cls):
-        replace_hour = cls.start_date_time.replace(hour=6)
-        replace_minute = replace_hour.replace(minute=00)
-        cls.start_date_time = replace_minute + timedelta(days=1)
-        return cls.start_date_time
-    
-    def __init__(self, id: int, strat_location: Location, *other_locations: Location) -> None:
-        self._id = id
+    def __init__(self, strat_location: Location, *other_locations: Location) -> None:
         self._start_location = strat_location
         self._other_locations = other_locations
-        self._start_date_time = Route.next_date_time()
+
+        self._id = Route.id
+        Route.id += 1
+        self._start_date_time = Route.start_date_time.replace(hour=6, minute=00) + timedelta(days=1)
         self._status = RouteStatus.OPEN
+
         self._packages: list[Package] = []
         self._truck: Truck = None  
 
-    @property
-    def id(self):
-        return self._id
-    
+
     @property
     def start_location(self):
         return self._start_location
@@ -41,36 +35,36 @@ class Route:
         return tuple(self._packages)
 
     def locations(self):
-        date_time = self.start_date_time
-        current_location = self.start_location 
+        date_time = self._start_date_time
+        current_location = self._start_location 
         locations_list = []
-        for location in self.other_locations:
+        for location in self._other_locations:
             key_locations_time = f'{current_location}-{location}'
             locations_time = Location.locations_time[key_locations_time]
             date_time += timedelta(hours=locations_time)
             locations_list.append(f'{location} {date_time.strftime('%d/%m %A @ %H:%M')}')
             current_location = location
-            locations = f'{self.start_location} ({self.start_date_time.strftime('%d/%m %A @ %H:%M')}) → {" → ".join(locations_list)}'
+            locations = f'{self._start_location} ({self._start_date_time.strftime('%d/%m %A @ %H:%M')}) → {" → ".join(locations_list)}'
         return locations
     
     def distance(self):
         distance = 0
-        current_location = self.start_location
-        for location in self.other_locations:
+        current_location = self._start_location
+        for location in self._other_locations:
             key_locations_distance = f'{current_location}-{location}'
             distance += Location.locations_distance[key_locations_distance]
             current_location = location
         return distance
     
     def eta(self):
-        date_time = self.start_date_time
-        current_location = self.start_location
-        for location in self.other_locations:
+        date_time = self._start_date_time
+        current_location = self._start_location
+        for location in self._other_locations:
             key_locations_time = f'{current_location}-{location}'
             locations_time = Location.locations_time[key_locations_time]
             date_time += timedelta(hours=locations_time)
             current_location = location
-            return date_time.strftime('%d/%m %A @ %H:%M')
+        return date_time.strftime('%d/%m %A @ %H:%M')
     
     def change_status(self):
         self._status = RouteStatus.next_route_status(self.status)
