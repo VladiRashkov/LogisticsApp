@@ -1,5 +1,3 @@
-# for route needed - Elena
-
 class Location:
     locations_distance = {
         'Sydney-Melbourne': 877, 'Sydney-Adelaide': 1376, 'Sydney-AliceSprings': 2762, 'Sydney-Bristbane': 909, 'Sydney-Darwin': 3935, 'Sydney-Perth': 4016,
