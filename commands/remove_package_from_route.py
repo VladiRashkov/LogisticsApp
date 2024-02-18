@@ -5,6 +5,7 @@ class RemovePackageFromRouteCommand(BaseCommand):
     def __init__(self, params: list[str], app_data: ApplicationData):
         super().__init__(params, app_data)
 
+
     def execute(self):
         route_id = int(self.params[0])
         package_id = int(self.params[1])
