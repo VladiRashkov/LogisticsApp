@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from models.location import Location
-from models.status import Status
+from models.status import RouteStatus
 from models.package import Package
 from models.truck import Truck
 
@@ -20,7 +20,7 @@ class Route:
         self._start_location = strat_location
         self._other_locations = other_locations
         self._start_date_time = Route.next_date_time()
-        self._status = Status.OPEN
+        self._status = RouteStatus.OPEN
         self._packages: list[Package] = []
         self._truck: Truck = None  
 
@@ -73,7 +73,7 @@ class Route:
             return date_time.strftime('%d/%m %A @ %H:%M')
     
     def change_status(self):
-        self.status = Status.next_route_status(self.status)
+        self._status = RouteStatus.next_route_status(self.status)
 
     def add_packages(self, package: Package): 
         self._packages.append(package)
@@ -83,6 +83,8 @@ class Route:
         capacity = sum(package.weight for package in self._packages)
         if range < truck._range and capacity < truck._capacity:
             self._truck = truck._truck_id
+        else:
+            raise ValueError(f'Please, enter another TruckID as this one is unsuitable.')
         
     def view_route(self):
         package_ids = [f'{package.id}' for package in self._packages]
@@ -99,11 +101,11 @@ class Route:
                     f'TruckID: No truck assigned.')
         else:
             return (f'RouteID: {self._id}\n'
-                    f'Route status: {Status.next_route_status(Status.OPEN)}\n'
+                    f'Route status: {RouteStatus.next_route_status(RouteStatus.OPEN)}\n'
                     f'Route locations: {self.locations()}\n'
                     f'Route total distnce: {self.distance()} km\n'
                     f'Route capacity: {package_weights} kg\n'
                     f'Route start date: {self._start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
                     f'Route final ETA: {self.eta()}\n'
                     f'PackageID: {package_ids}\n'  
-                    f'TruckID: {self._truck}')
+                    f'TruckID: {self._truck}') 
