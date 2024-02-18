@@ -25,3 +25,5 @@ class ViewRouteCommand(BaseCommand):
 # Route final ETA: 13/02 Tuesday @ 14:00
 # PackageID: Package is still unassigned. - > default message – changes when packages  assigned to route from hub
 # TruckID: Truck is still unassigned. - > default message – changes validation passes route capacity < truck capacity; route distance < truck max range, truck availability between route start date and route final ETA
+
+# changes to follow?
