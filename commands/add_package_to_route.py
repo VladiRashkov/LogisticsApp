@@ -9,12 +9,14 @@ class AddPackageToRouteCommand:
         route_id = int(self._params[0])
         package_id = int(self._params[1])
 
-        route = self._app_data.find_route(route_id)
+        route = self._app_data.find_route_id(route_id)
         if route is None:
-            return f'Route with ID: {route.id} not found!'
+            return f'Route with ID: {route_id} not found!'
         
-        route.add_packages(package_id)
-        return f'Pakcage with ID: {package_id} has been added to route with ID: {route_id}'
+        package = self._app_data.find_package_id(package_id)
+        if package is None:
+            return f'Package with ID: {package_id} not found!'
+        
+        route.add_packages(package)
 
-# Input: AddPackageToRoute RouteId PackageId (2 params)
-# Output: Package with ID: 21 has been added to route with ID: 25!
+        return f'Pakcage with ID: {package_id} has been added to route with ID: {route_id}!'
