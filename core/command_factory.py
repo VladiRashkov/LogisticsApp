@@ -16,6 +16,7 @@ from commands.remove_package_from_route import RemovePackageFromRouteCommand
 from commands.remove_truck_from_route import RemoveTruckFromRouteCommand
 from commands.update_route import UpdateRouteCommand
 from commands.view_route import ViewRouteCommand
+from commands.cancel_route import CancelRouteCommand
 from core.application_data import ApplicationData
 
 from core.application_data import ApplicationData
@@ -54,5 +55,7 @@ class CommandFactory:
             return UpdateRouteCommand(params, self._app_data)
         if cmd.lower() == 'viewroute':
             return ViewRouteCommand(params, self._app_data)
+        if cmd.lower() == 'cancelroute':
+            return CancelRouteCommand(params, self._app_data)
         
         raise ValueError(f'Invalid command name: {cmd}!')
