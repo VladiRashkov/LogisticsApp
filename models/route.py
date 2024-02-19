@@ -75,6 +75,20 @@ class Route:
             current_location = location
         return date_time.strftime('%d/%m %A @ %H:%M')
     
+    def current_eta(self):
+        current_date_time = datetime.today()
+        current_location = self._start_location
+        current_location_date_time = self._start_date_time
+        for location in self._other_locations:
+            key_locations_time = f'{current_location}-{location}'
+            locations_time = Location.locations_time[key_locations_time]
+            current_location_date_time += timedelta(hours=locations_time)
+
+        if current_date_time > current_location_date_time:
+            return current_location_date_time.strftime('%d/%m %A @ %H:%M')
+        else:
+            return f'Truck hasn\'t left yet!'
+    
     def change_status(self):
         self._status = RouteStatus.next_route_status(self.status)
 
