@@ -22,4 +22,4 @@ class ViewRouteCommand:
                    f'Route current ETA: {route.current_eta()}')
             on_route_list.append(info)
             on_route_string = f'{''.join(on_route_list)}'
-        return on_route_string 
+        return on_route_string
