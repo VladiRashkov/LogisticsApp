@@ -47,6 +47,15 @@ class Route:
             locations = f'{self._start_location} ({self._start_date_time.strftime('%d/%m %A @ %H:%M')}) → {" → ".join(locations_list)}'
         return locations
     
+    def find_locations(self): 
+        find_locations_list = []
+        find_locations_list.append(self.start_location)
+        for location in self._other_locations:
+            find_locations_list.append(location)
+        return find_locations_list
+
+
+    
     def distance(self):
         distance = 0
         current_location = self._start_location
