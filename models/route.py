@@ -53,8 +53,6 @@ class Route:
         for location in self._other_locations:
             find_locations_list.append(location)
         return find_locations_list
-
-
     
     def distance(self):
         distance = 0
@@ -93,20 +91,39 @@ class Route:
         self._status = RouteStatus.next_route_status(self.status)
 
     def add_packages(self, package: Package): 
+        if package.id in [p.id for p in self._packages]:
+            raise ValueError(f'Package with ID: {package.id} already added to roiute with ID: {self._id}!')
+        
         self._packages.append(package)
     
+    def remove_packages(self, package: Package):
+        ids = [p.id for p in self._packages]
+        if package.id not in ids:
+            raise ValueError(f'Package with ID: {package.id} not found in route with ID: {self._id}!')
+        
+        idx = ids.index(package.id)
+        self._packages.pop(idx)
+
+    def package_weights(self):
+        package_weights = sum(package.weight for package in self._packages)
+        return f'{package_weights}'
+    
     def add_truck(self, truck: Truck):
-        range = Route.distance()
-        capacity = sum(package.weight for package in self._packages)
-        if range < truck._range and capacity < truck._capacity:
-            self._truck = truck._truck_id
-        else:
-            raise ValueError(f'Please, enter another TruckID as this one is unsuitable.')
+        if truck._truck_id == None:
+            raise ValueError(f'Truck with ID: {truck._truck_id} cannot be assigned route with ID: {self._id}!')
+        
+        self._truck = truck._truck_id
+
+    def remove_truck(self, truck: Truck):
+        if truck._truck_id == None:
+            raise ValueError(f'Truck with ID: {truck._truck_id} not assigned to route with ID: {self._id}!')
+        
+        self._truck = None
+
         
     def view_route(self):
-        package_ids = [f'{package.id}' for package in self._packages]
-        package_weights = sum(package.weight for package in self._packages)
-        if len(package_ids) == 0 and self._truck == None:
+        packages_lst = [str( package.id) for package in self._packages]
+        if len(packages_lst) == 0 and self._truck == None:
             return (f'RouteID: {self._id}\n'
                     f'Route status: {self._status}\n'
                     f'Route locations: {self.locations()}\n'
@@ -116,13 +133,33 @@ class Route:
                     f'Route final ETA: {self.eta()}\n'
                     f'PackageID: No packages assigned.\n'  
                     f'TruckID: No truck assigned.')
+        elif len(packages_lst) == 0 and self._truck != None:
+            return (f'RouteID: {self._id}\n'
+                    f'Route status: {self._status}\n'
+                    f'Route locations: {self.locations()}\n'
+                    f'Route total distnce: {self.distance()} km\n'
+                    f'Route capacity: No packages assigned.\n'
+                    f'Route start date: {self._start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
+                    f'Route final ETA: {self.eta()}\n'
+                    f'PackageID: No packages assigned.\n'  
+                    f'TruckID: {self._truck}')
+        elif len(packages_lst) != 0 and self._truck == None:
+            return (f'RouteID: {self._id}\n'
+                    f'Route status: {self._status}\n'
+                    f'Route locations: {self.locations()}\n'
+                    f'Route total distnce: {self.distance()} km\n'
+                    f'Route capacity: {self.package_weights()} kg\n'
+                    f'Route start date: {self._start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
+                    f'Route final ETA: {self.eta()}\n'
+                    f'PackageID: {','.join(packages_lst)}\n'  
+                    f'TruckID: No truck assigned.')
         else:
             return (f'RouteID: {self._id}\n'
                     f'Route status: {RouteStatus.next_route_status(RouteStatus.OPEN)}\n'
                     f'Route locations: {self.locations()}\n'
                     f'Route total distnce: {self.distance()} km\n'
-                    f'Route capacity: {package_weights} kg\n'
+                    f'Route capacity: {self.package_weights()} kg\n'
                     f'Route start date: {self._start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
                     f'Route final ETA: {self.eta()}\n'
-                    f'PackageID: {package_ids}\n'  
+                    f'PackageID: {','.join(packages_lst)}\n'  
                     f'TruckID: {self._truck}') 
