@@ -1,15 +1,15 @@
 from core.application_data import ApplicationData
-from commands.base_command import BaseCommand
 
-class FindRouteCommand(BaseCommand):
+class FindRouteCommand:
     def __init__(self, params: list[str], app_data: ApplicationData):
-        super().__init__(params, app_data)
+        self._params = params
+        self._app_data = app_data
         
     def execute(self):
-        start_location = self.params[0]
-        end_location = self.params[1]
+        start_location = self._params[0]
+        end_location = self._params[1]
 
-        route = self.app_data.find_route_by_locations(start_location, end_location)
+        route = self._app_data.find_route_by_locations(start_location, end_location)
 
         if route is None:
             return f'Route from {start_location} to {end_location} not found!'
