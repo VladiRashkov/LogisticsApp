@@ -11,7 +11,7 @@ class UpdateRouteCommand:
     def execute(self):
         route_id = int(self._params[0])
 
-        route = self._app_data.find_route(route_id)
+        route = self._app_data.find_route_id(route_id)
 
         today_date = datetime.today()
 
@@ -28,10 +28,7 @@ class UpdateRouteCommand:
                 route._status = RouteStatus.next_route_status(RouteStatus.ON_ROUTE)
                 return f'Route with ID: {route_id} has been updated with status: {route._status}!'
             elif route._packages == [] and route._truck == None:
-                return f'Status for route with ID: {route_id} cannot be updated - truck and packages not assigned!'
-            elif route._packages == [] or route._truck == None:
                 route._status = RouteStatus.next_route_status(RouteStatus.ARRIVED)
                 return f'Route with ID: {route_id} has been updated with status: {route._status}!'
-
-# Input: UpdateRoute RouteId (1 param)
-# Output: Route with ID: 25 has been updated with status: scheduled!
+            elif route._packages == [] or route._truck == None:
+                return f'Status for route with ID: {route_id} cannot be updated - truck or packages not assigned!'
