@@ -1,18 +1,18 @@
 from core.application_data import ApplicationData
-from commands.base_command import BaseCommand
 from models.route import Route
 
-class CreateRouteCommand(BaseCommand):
+class CreateRouteCommand:
     def __init__(self, params: list[str], app_data: ApplicationData):
-        super().__init__(params, app_data)
+        self._params = params
+        self._app_data = app_data
       
     def execute(self):
         route_id = Route.id
-        start_location = self.params[0]
-        other_locations = self.params[1:]
+        start_location = self._params[0]
+        other_locations = self._params[1:]
 
         route = Route(start_location, *other_locations)
-        self.app_data.add_route(route)
+        self._app_data.add_route(route)
 
         return f'Route with ID: {route_id} has been created!'
 

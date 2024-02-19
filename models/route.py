@@ -47,6 +47,15 @@ class Route:
             locations = f'{self._start_location} ({self._start_date_time.strftime('%d/%m %A @ %H:%M')}) → {" → ".join(locations_list)}'
         return locations
     
+    def find_locations(self): 
+        find_locations_list = []
+        find_locations_list.append(self.start_location)
+        for location in self._other_locations:
+            find_locations_list.append(location)
+        return find_locations_list
+
+
+    
     def distance(self):
         distance = 0
         current_location = self._start_location
@@ -65,6 +74,20 @@ class Route:
             date_time += timedelta(hours=locations_time)
             current_location = location
         return date_time.strftime('%d/%m %A @ %H:%M')
+    
+    def current_eta(self):
+        current_date_time = datetime.today()
+        current_location = self._start_location
+        current_location_date_time = self._start_date_time
+        for location in self._other_locations:
+            key_locations_time = f'{current_location}-{location}'
+            locations_time = Location.locations_time[key_locations_time]
+            current_location_date_time += timedelta(hours=locations_time)
+
+        if current_date_time > current_location_date_time:
+            return current_location_date_time.strftime('%d/%m %A @ %H:%M')
+        else:
+            return f'Truck hasn\'t left yet!'
     
     def change_status(self):
         self._status = RouteStatus.next_route_status(self.status)

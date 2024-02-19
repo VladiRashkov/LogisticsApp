@@ -2,6 +2,7 @@ from models.package import Package
 from models.route import Route
 from models.truck import Truck
 from models.user import User
+from models.status import RouteStatus
 
 
 class ApplicationData:
@@ -36,7 +37,7 @@ class ApplicationData:
     def create_trucks(self, truck: Truck):
         self._trucks.append(truck)
     
-    # Route:
+    # Route
     @property
     def routes(self):
         return tuple(self._routes)
@@ -51,7 +52,7 @@ class ApplicationData:
 
         return None
 
-    def cancel_route(self, id: int): # for the route_update command???
+    def cancel_route(self, id: int): 
         found_route = None
         for route in self._routes:
             if route._id == id:
@@ -102,3 +103,26 @@ class ApplicationData:
         else:
             self._routes.remove(found_truck)
             return True
+
+    def find_route_by_locations(self, start_location: Route, end_location: Route):
+        for route in self._routes:
+            n = start_location
+            m = end_location
+            locations = route.find_locations()
+            for loc in range(len(locations)):
+                if locations[loc] == n:
+                    continue
+                current = loc
+                if locations[loc] == m and loc > current:
+                    break
+            return route
+        return None
+    
+    def view_routes_status(self, status: RouteStatus):
+        routes_status = []
+
+        for route in self._routes:
+            if route._status == status:
+                routes_status.append(route)
+
+        return routes_status
