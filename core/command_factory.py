@@ -16,6 +16,7 @@ from commands.remove_package_from_route import RemovePackageFromRouteCommand
 from commands.remove_truck_from_route import RemoveTruckFromRouteCommand
 from commands.update_route import UpdateRouteCommand
 from commands.view_route import ViewRouteCommand
+from core.application_data import ApplicationData
 
 from core.application_data import ApplicationData
 
@@ -45,10 +46,6 @@ class CommandFactory:
             return FindRouteCommand(params, self._app_data)
         if cmd.lower() == 'inforoute':
             return InfoRouteCommand(params, self._app_data)
-        if cmd.lower() == 'infopackage':
-            return InfoPackage(params, self._app_data)
-        if cmd.lower() == 'updatepackage':
-            return UpdatePackage(params, self._app_data)
         if cmd.lower() == 'removepackagefromroute':
             return RemovePackageFromRouteCommand(params, self._app_data)
         if cmd.lower() == 'removetruckfromroute':
@@ -57,9 +54,5 @@ class CommandFactory:
             return UpdateRouteCommand(params, self._app_data)
         if cmd.lower() == 'viewroute':
             return ViewRouteCommand(params, self._app_data)
-        if cmd.lower() == 'updatetruck':
-            return UpdateTruck(params, self._app_data)
-        if cmd.lower() == 'infotruck':
-            return InfoTruck(params, self._app_data)
         
         raise ValueError(f'Invalid command name: {cmd}!')
