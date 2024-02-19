@@ -1,5 +1,5 @@
 import unittest
-from commands.create_trucks import CreateTrucks
+from commands.create_trucks import CreateTrucksCommand
 from models.truck import Truck
 from core.application_data import ApplicationData
 
@@ -7,7 +7,7 @@ class CreateTrucks_Should(unittest.TestCase):
     def test_execute_creates_trucks(self):
         # Arrange
         app_data = ApplicationData()
-        create_trucks = CreateTrucks(params=None, app_data=app_data)
+        create_trucks = CreateTrucksCommand(params=None, app_data=app_data)
         # Act
         create_trucks.execute()
         # Assert
