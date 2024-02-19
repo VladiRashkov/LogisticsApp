@@ -10,7 +10,11 @@ class InfoPackage():
         id_input = try_parse_int(self._params[0])
         for package in self.app_data.packages:
             if package.id == id_input:
-                return package
+                return f"PackageID: {package.id}\nPackage weight: {package.weight} kg\nPackage start location: {package.start}\nPackage end location: {package.end}\nPackage entry date: {package.date}\nPackage final ETA:\nPackage status: {package.status}"
+
+
+
+
 
 
 
