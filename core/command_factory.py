@@ -1,3 +1,4 @@
+from commands.info_package import InfoPackage
 from commands.create_package import CreatePackageCommand
 from commands.register_customer import RegisterCustomer
 from commands.find_trucks import FindTrucks
@@ -43,6 +44,8 @@ class CommandFactory:
             return FindRouteCommand(params, self._app_data)
         if cmd.lower() == 'inforoute':
             return InfoRouteCommand(params, self._app_data)
+        if cmd.lower() == 'infopackage':
+            return InfoPackage(params, self._app_data)
         if cmd.lower() == 'removepackagefromroute':
             return RemovePackageFromRouteCommand(params, self._app_data)
         if cmd.lower() == 'removetruckfromroute':
