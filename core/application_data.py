@@ -36,7 +36,7 @@ class ApplicationData:
     def create_trucks(self, truck: Truck):
         self._trucks.append(truck)
     
-    # Route:
+    # Route
     @property
     def routes(self):
         return tuple(self._routes)
@@ -102,3 +102,17 @@ class ApplicationData:
         else:
             self._routes.remove(found_truck)
             return True
+
+    def find_route_by_locations(self, start_location: Route, end_location: Route):
+        for route in self._routes:
+            n = start_location
+            m = end_location
+            locations = route.find_locations()
+            for loc in range(len(locations)):
+                if locations[loc] == n:
+                    continue
+                current = loc
+                if locations[loc] == m and loc > current:
+                    break
+            return route
+        return None
