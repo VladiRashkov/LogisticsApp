@@ -1,9 +1,9 @@
 from core.application_data import ApplicationData
-from commands.base_command import BaseCommand
 
-class ViewRouteCommand(BaseCommand):
+class ViewRouteCommand:
     def __init__(self, params: list[str], app_data: ApplicationData):
-        super().__init__(params, app_data)
+        self._params = params
+        self._app_data = app_data
 
     def execute(self):
         pass
