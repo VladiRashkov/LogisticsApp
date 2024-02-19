@@ -1,16 +1,17 @@
 from core.application_data import ApplicationData
-from commands.base_command import BaseCommand
 from models.status import RouteStatus
 from datetime import datetime
 
-class UpdateRouteCommand(BaseCommand):
+class UpdateRouteCommand:
     def __init__(self, params: list[str], app_data: ApplicationData):
-        super().__init__(params, app_data)
+        self._params = params
+        self._app_data = app_data
+      
 
     def execute(self):
-        route_id = int(self.params[0])
+        route_id = int(self._params[0])
 
-        route = self.app_data.find_route(route_id)
+        route = self._app_data.find_route(route_id)
 
         today_date = datetime.today()
 
@@ -27,7 +28,7 @@ class UpdateRouteCommand(BaseCommand):
                 route._status = RouteStatus.next_route_status(RouteStatus.ON_ROUTE)
                 return f'Route with ID: {route_id} has been updated with status: {route._status}!'
             elif route._packages == [] and route._truck == None:
-                return f'Status cannot be updated: truck and packages not assigned to route with ID: {route_id}!'
+                return f'Status for route with ID: {route_id} cannot be updated - truck and packages not assigned!'
             elif route._packages == [] or route._truck == None:
                 route._status = RouteStatus.next_route_status(RouteStatus.ARRIVED)
                 return f'Route with ID: {route_id} has been updated with status: {route._status}!'
