@@ -2,6 +2,7 @@ from models.package import Package
 from models.route import Route
 from models.truck import Truck
 from models.user import User
+from models.status import RouteStatus
 
 
 class ApplicationData:
@@ -51,17 +52,17 @@ class ApplicationData:
 
         return None
 
-    def cancel_route(self, id: int): # for the route_update command???
-        found_route = None
-        for route in self._routes:
-            if route._id == id:
-               found_route = route
+    # def cancel_route(self, id: int): # for the route_update command???
+    #     found_route = None
+    #     for route in self._routes:
+    #         if route._id == id:
+    #            found_route = route
 
-        if found_route is None:
-            return False
-        else:
-            self._routes.remove(found_route)
-            return True
+    #     if found_route is None:
+    #         return False
+    #     else:
+    #         self._routes.remove(found_route)
+    #         return True
     
     def find_package(self, id: int):
         for route in self._routes:
@@ -116,3 +117,12 @@ class ApplicationData:
                     break
             return route
         return None
+    
+    def view_routes_status(self, status: RouteStatus):
+        routes_status = []
+
+        for route in self._routes:
+            if route._status == status:
+                routes_status.append(route)
+
+        return routes_status
