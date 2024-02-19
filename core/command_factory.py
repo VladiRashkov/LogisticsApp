@@ -52,6 +52,8 @@ class CommandFactory:
             return RemoveTruckFromRouteCommand(params, self._app_data)
         if cmd.lower() == 'updateroute':
             return UpdateRouteCommand(params, self._app_data)
+        if cmd.lower() == "updatepackage":
+            return UpdatePackage(params, self._app_data)
         if cmd.lower() == 'viewroute':
             return ViewRouteCommand(params, self._app_data)
         if cmd.lower() == 'cancelroute':
