@@ -15,8 +15,3 @@ class CreateRouteCommand:
         self._app_data.add_route(route)
 
         return f'Route with ID: {route_id} has been created!'
-
-
-# Input: CreateRoute AliceSprings Adelaide Sydney Melbourne Bristbane (n params)
-# Output: Route with ID: 1 has been created!
-
