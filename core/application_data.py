@@ -45,17 +45,17 @@ class ApplicationData:
     def add_route(self, route: Route):
         self._routes.append(route)
 
-    def find_route(self, id: int):
+    def find_route_id(self, route_id: int):
         for route in self._routes:
-            if route._id == id:
+            if route._id == route_id:
                return route
 
         return None
 
-    def cancel_route(self, id: int): 
+    def cancel_route(self, route_id: int): 
         found_route = None
         for route in self._routes:
-            if route._id == id:
+            if route._id == route_id:
                found_route = route
 
         if found_route is None:
@@ -64,45 +64,19 @@ class ApplicationData:
             self._routes.remove(found_route)
             return True
     
-    def find_package(self, id: int):
-        for route in self._routes:
-            for package in route._packages:
-                if package.id == id:
-                    return package
+    def find_package_id(self, package_id: int) -> Package:
+        for package in self._packages:
+            if package.id == package_id:
+                return package
 
         return None
     
-    def remove_package(self, id: int):
-        found_package = None
-        for route in self._routes:
-            for package in route._packages:
-                if package.id == id:
-                    found_package = package
-
-        if found_package is None:
-            return False
-        else:
-            self._routes.remove(found_package)
-            return True
-        
-    def find_truck(self, id: int):
-        for route in self._routes:
-            if route._truck == id:
-                return id
+    def find_truck_id(self, truck_id: int) -> Truck:
+        for truck in self._trucks:
+            if truck._truck_id == truck_id:
+                return truck
 
         return None
-    
-    def remove_truck(self, id: int):
-        found_truck = None
-        for route in self._routes:
-            if route._truck == id:
-                found_truck = id
-
-        if found_truck is None:
-            return False
-        else:
-            self._routes.remove(found_truck)
-            return True
 
     def find_route_by_locations(self, start_location: Route, end_location: Route):
         for route in self._routes:
