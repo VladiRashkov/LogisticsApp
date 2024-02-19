@@ -1,16 +1,15 @@
 from core.application_data import ApplicationData
-from commands.base_command import BaseCommand
 
-class RemovePackageFromRouteCommand(BaseCommand):
+class RemovePackageFromRouteCommand:
     def __init__(self, params: list[str], app_data: ApplicationData):
-        super().__init__(params, app_data)
-
+        self._params = params
+        self._app_data = app_data
 
     def execute(self):
-        route_id = int(self.params[0])
-        package_id = int(self.params[1])
+        route_id = int(self._params[0])
+        package_id = int(self._params[1])
 
-        if self.app_data.remove_package(package_id):
+        if self._app_data.remove_package(package_id):
             return f'Package with ID: {package_id} has been removed from route with ID: {route_id}!'
         else:
             return f'Package with ID: {package_id} not found!'
