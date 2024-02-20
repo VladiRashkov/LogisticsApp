@@ -108,6 +108,8 @@ class Route:
         package_weights = sum(package._weight for package in self._packages)
         return f'{package_weights}'
     
+    # ToDo for add_truck() -> add validation which will determine if the truck has the range to cover the distance of the route
+    # ToDo for add_truck() -> add validation which will determine if the truck's capacity wil not be exceeded
     def add_truck(self, truck: Truck):
         if truck._truck_id == None:
             raise ValueError(f'Truck with ID: {truck._truck_id} cannot be assigned route with ID: {self._id}!')
