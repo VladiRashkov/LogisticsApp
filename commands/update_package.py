@@ -27,23 +27,23 @@ class UpdatePackageCommand:
         for package in self._app_data.packages:
             if package.id == input_package_id:
                 if package.date < input_start_formatted:
-                    package.status = Statuses.ASSIGNED
+                    package.status = PackageStatus.ASSIGNED
                     return f"Package with ID:{package.id} is on status: {package.status}! ETA: {input_eta_formatted}"
                 elif package.date >= input_start_formatted and package.date<input_eta_formatted:
-                    package.status = Statuses.INPROGRESS
+                    package.status = PackageStatus.INPROGRESS
                     return f"Package with ID:{package.id} is on status: {package.status}! ETA: {input_eta_formatted}"
                 elif package.date >=input_eta_formatted:
-                    package.status = Statuses.DELIVERED
+                    package.status = PackageStatus.DELIVERED
                     return f"Package with ID:{package.id} is on status: {package.status}! ETA: {input_eta_formatted}"
                 
                 
         for package in self._app_data.packages:
             if package.date < input_start_formatted:
-                package.status=Statuses.ASSIGNED
+                package.status=PackageStatus.ASSIGNED
             elif package.date >= input_start_formatted and package.date<input_eta_formatted:
-                package.status = Statuses.INPROGRESS
+                package.status = PackageStatus.INPROGRESS
             elif package.date >=input_eta_formatted:
-                package.status = Statuses.DELIVERED
+                package.status = PackageStatus.DELIVERED
         # if input_status =="assigned".lower():
         #     for package in self._app_data.packages:
         #         if package.id == input_package_id:
