@@ -14,4 +14,3 @@ class InfoTruckCommand:
             return info_message
         else:
             print(f'Truck ID not found')
-            return 'Truck ID not found'
