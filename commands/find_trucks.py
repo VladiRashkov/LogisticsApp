@@ -7,7 +7,7 @@ from models.truck import Truck
 from models.status import TruckStatus
 
 
-class FindTrucks: #shows available trucks for route
+class FindTruckCommand: #shows available trucks for route
         def __init__(self, params, app_data: ApplicationData):
                 self.params = params
                 self.app_data = app_data
