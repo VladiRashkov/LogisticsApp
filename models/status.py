@@ -1,7 +1,7 @@
 class RouteStatus:
     OPEN = 'Open'
     SCHEDULED = 'Scheduled'
-    ON_ROUTE = 'On route'
+    ON_ROUTE = 'OnRoute'
     ARRIVED = 'Arrived'
     CANCELLED = 'Cancelled'
 
