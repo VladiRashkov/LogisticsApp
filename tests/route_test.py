@@ -34,3 +34,11 @@ class Route_Should(unittest.TestCase):
         # Asserting packages and truck are initialized correctly
         self.assertEqual(route._packages, [])
         self.assertIsNone(route._truck)
+
+    # ToDo: tests for methods: 
+    # locations; find_locations; distance; eta; current_eta; change_status;
+    # add_packages; remove_packages; package_weights; 
+    # add_truck; remove_truck; 
+    # view_route
+    
+    # ToDo: write tests for all the commands which include route in themselves
