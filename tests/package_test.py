@@ -1,5 +1,5 @@
 import unittest
-from models.package_statuses import Statuses
+from models.status import PackageStatus
 from datetime import datetime
 from models.package import Package
 
@@ -18,6 +18,6 @@ class Package_Should(unittest.TestCase):
         self.assertEqual(package.start, start)
         self.assertEqual(package.end, end)
         self.assertEqual(package.weight, weight)
-        self.assertEqual(package.status, Statuses.UNASSIGNED)
+        self.assertEqual(package.status, PackageStatus.UNASSIGNED)
         self.assertEqual(package.username, username)
         self.assertIsInstance(datetime.strptime(package.date, '%d/%m %A @ %H:%M'), datetime)
