@@ -4,7 +4,7 @@ from commands.validation_helpers import try_parse_int
 from models.status import Statuses
 from datetime import datetime
 
-class UpdatePackage():
+class UpdatePackageCommand:
     def __init__(self, params, app_data: ApplicationData):
         self._app_data = app_data
         self._params = params
