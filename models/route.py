@@ -42,9 +42,9 @@ class Route:
             key_locations_time = f'{current_location}-{location}'
             locations_time = Location.locations_time[key_locations_time]
             date_time += timedelta(hours=locations_time)
-            locations_list.append(f'{location} {date_time.strftime('%d/%m %A @ %H:%M')}')
+            locations_list.append(f'{location} {date_time.strftime("%d/%m %A @ %H:%M")}')
             current_location = location
-            locations = f'{self._start_location} ({self._start_date_time.strftime('%d/%m %A @ %H:%M')}) → {" → ".join(locations_list)}'
+            locations = f'{self._start_location} ({self._start_date_time.strftime("%d/%m %A @ %H:%M")}) → {" → ".join(locations_list)}'
         return locations
     
     def find_locations(self): 
@@ -129,7 +129,7 @@ class Route:
                     f'Route locations: {self.locations()}\n'
                     f'Route total distnce: {self.distance()} km\n'
                     f'Route capacity: No packages assigned.\n'
-                    f'Route start date: {self._start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
+                    f'Route start date: {self._start_date_time.strftime("%d/%m %A @ %H:%M")}\n'
                     f'Route final ETA: {self.eta()}\n'
                     f'PackageID: No packages assigned.\n'  
                     f'TruckID: No truck assigned.')
@@ -139,7 +139,7 @@ class Route:
                     f'Route locations: {self.locations()}\n'
                     f'Route total distnce: {self.distance()} km\n'
                     f'Route capacity: No packages assigned.\n'
-                    f'Route start date: {self._start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
+                    f'Route start date: {self._start_date_time.strftime("%d/%m %A @ %H:%M")}\n'
                     f'Route final ETA: {self.eta()}\n'
                     f'PackageID: No packages assigned.\n'  
                     f'TruckID: {self._truck}')
@@ -149,9 +149,9 @@ class Route:
                     f'Route locations: {self.locations()}\n'
                     f'Route total distnce: {self.distance()} km\n'
                     f'Route capacity: {self.package_weights()} kg\n'
-                    f'Route start date: {self._start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
+                    f'Route start date: {self._start_date_time.strftime("%d/%m %A @ %H:%M")}\n'
                     f'Route final ETA: {self.eta()}\n'
-                    f'PackageID: {','.join(packages_lst)}\n'  
+                    f'PackageID: {",".join(packages_lst)}\n'  
                     f'TruckID: No truck assigned.')
         else:
             return (f'RouteID: {self._id}\n'
@@ -159,7 +159,7 @@ class Route:
                     f'Route locations: {self.locations()}\n'
                     f'Route total distnce: {self.distance()} km\n'
                     f'Route capacity: {self.package_weights()} kg\n'
-                    f'Route start date: {self._start_date_time.strftime('%d/%m %A @ %H:%M')}\n'
+                    f'Route start date: {self._start_date_time.strftime("%d/%m %A @ %H:%M")}\n'
                     f'Route final ETA: {self.eta()}\n'
-                    f'PackageID: {','.join(packages_lst)}\n'  
+                    f'PackageID: {",".join(packages_lst)}\n'  
                     f'TruckID: {self._truck}') 
