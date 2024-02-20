@@ -15,7 +15,7 @@ class Route:
 
         self._id = Route.id
         Route.id += 1
-        self._start_date_time = Route.start_date_time.replace(hour=6, minute=00) + timedelta(days=1)
+        self._start_date_time = Route.start_date_time.replace(hour=6, minute=00, microsecond=00) + timedelta(days=1)
         self._status = RouteStatus.OPEN
 
         self._packages: list[Package] = []

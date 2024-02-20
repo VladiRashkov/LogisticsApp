@@ -25,7 +25,7 @@ class Route_Should(unittest.TestCase):
         self.assertEqual(route._id, 1)
 
         # Asserting start_date_time is set correctly
-        expected_start_date_time = datetime.today().replace(hour=6, minute=00) + timedelta(days=1)
+        expected_start_date_time = datetime.today().replace(hour=6, minute=00, microsecond=00) + timedelta(days=1)
         self.assertEqual(route._start_date_time, expected_start_date_time)
 
         # Asserting status is set correctly
