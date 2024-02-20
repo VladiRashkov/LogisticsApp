@@ -91,21 +91,21 @@ class Route:
         self._status = RouteStatus.next_route_status(self.status)
 
     def add_packages(self, package: Package): 
-        if package.id in [p.id for p in self._packages]:
-            raise ValueError(f'Package with ID: {package.id} already added to roiute with ID: {self._id}!')
+        if package._id in [p._id for p in self._packages]:
+            raise ValueError(f'Package with ID: {package._id} already added to roiute with ID: {self._id}!')
         
         self._packages.append(package)
     
     def remove_packages(self, package: Package):
-        ids = [p.id for p in self._packages]
-        if package.id not in ids:
-            raise ValueError(f'Package with ID: {package.id} not found in route with ID: {self._id}!')
+        ids = [p._id for p in self._packages]
+        if package._id not in ids:
+            raise ValueError(f'Package with ID: {package._id} not found in route with ID: {self._id}!')
         
-        idx = ids.index(package.id)
+        idx = ids.index(package._id)
         self._packages.pop(idx)
 
     def package_weights(self):
-        package_weights = sum(package.weight for package in self._packages)
+        package_weights = sum(package._weight for package in self._packages)
         return f'{package_weights}'
     
     def add_truck(self, truck: Truck):
