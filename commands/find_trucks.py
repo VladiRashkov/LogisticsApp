@@ -22,4 +22,4 @@ class FindTruckCommand: #shows available trucks for route
                         trucks = truck.to_string()
                         available_trucks.append(str(trucks))  
                 trucks_str = '\n'.join(available_trucks)   
-                print(f'Available trucks: {trucks_str}')
+                return f'Available trucks: {trucks_str}'
