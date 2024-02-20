@@ -7,11 +7,20 @@ class ViewRouteCommand:
         self._app_data = app_data
 
     def execute(self):
-        on_route = self._app_data.view_routes_status(RouteStatus.OPEN)
+        status = self._params[0]
+        # ToDo: crate a file to store the created routes with all the iformation so depending on the date and time the ones which are 'OnRoute'/'Arrived' will be available to view.
+        if status == RouteStatus.OPEN:
+            on_route = self._app_data.view_routes_status(RouteStatus.OPEN)
+        elif status == RouteStatus.SCHEDULED:
+            on_route = self._app_data.view_routes_status(RouteStatus.SCHEDULED)
+        elif status == RouteStatus.CANCELLED:
+            on_route = self._app_data.view_routes_status(RouteStatus.CANCELLED)
+        else:
+            return f'No routes to view!'
 
         on_route_list = []
         for route in on_route:
-            package_weights = sum(package.weight for package in route._packages)
+            package_weights = sum(package._weight for package in route._packages)
             info = (f'RouteID: {route._id}\n'
                    f'Route status: {route._status}\n'
                    f'Route locations: {route.locations()}\n'
