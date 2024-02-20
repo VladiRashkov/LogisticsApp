@@ -23,5 +23,5 @@ class UpdateTruckCommand:
         else:
             message = f'Truck with ID {truck_id} not found.'
 
-        print(message)  # Consider using logging instead of print
+        # print(message)  # Consider using logging instead of print
         return message
