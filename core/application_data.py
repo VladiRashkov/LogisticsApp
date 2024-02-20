@@ -18,7 +18,7 @@ class ApplicationData:
         return tuple(self._users)
     
     def add_user(self, user:User):
-        self.users.append(user)
+        self._users.append(user)
 
     #Package   
     @property
@@ -66,7 +66,7 @@ class ApplicationData:
     
     def find_package_id(self, package_id: int) -> Package:
         for package in self._packages:
-            if package.id == package_id:
+            if package._id == package_id:
                 return package
 
         return None
