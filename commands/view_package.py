@@ -13,7 +13,7 @@ class ViewPackageCommand:
         delivered = []
         
         for package in self._app_data.packages:
-            if status_to_check == package.status:
+            if status_to_check == package._status:
                 if status_to_check == "Unassigned":
                     unassigned.append(package)
                 elif status_to_check == "Assigned":
