@@ -1,7 +1,7 @@
 from models.user import User
 from core.application_data import ApplicationData
 from commands.validation_helpers import try_parse_int
-from models.status import Statuses
+from models.status import PackageStatus
 from datetime import datetime
 
 class UpdatePackageCommand:
