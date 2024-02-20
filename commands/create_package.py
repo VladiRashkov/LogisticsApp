@@ -2,7 +2,7 @@ from core.application_data import ApplicationData
 from models.package import Package
 from commands.validation_helpers import try_parse_int
 
-class CreatePackageCommand():
+class CreatePackageCommand:
     def __init__(self, params, app_data: ApplicationData):
         self._params = params
         self.app_data = app_data
