@@ -28,9 +28,9 @@ class ViewPackageCommand:
         elif status_to_check == "Assigned":
             return f"{'; '.join(map(str, assigned))}"
         elif status_to_check == "In_progress":
-           return f"{'\n'.join(map(str, in_progress))}"
+           return f"{';'.join(map(str, in_progress))}"
         elif status_to_check == "Delivered":
-            return f"{'\n'.join(map(str, delivered))}"
+            return f"{';'.join(map(str, delivered))}"
     #additionally takes the ETA from the route if it is assigned
     # route that is assigned to route ID
 

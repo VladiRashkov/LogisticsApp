@@ -13,7 +13,7 @@ class Package:
         self._end = end
         self._weight = weight
         self._status = PackageStatus.UNASSIGNED
-        self._date = datetime.now()
+        self.date = datetime.now()
         self._username = username
 
     def __str__(self):
