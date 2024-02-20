@@ -1,6 +1,7 @@
 from models.user import User
 from core.application_data import ApplicationData
-class RegisterCustomer():
+
+class RegisterCustomerCommand:
     def __init__(self, params, app_data: ApplicationData):
         self._app_data = app_data
         self._params = params
