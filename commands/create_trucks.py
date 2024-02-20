@@ -12,5 +12,10 @@ class CreateTrucksCommand:
         for truck in range(1001, 1041):
             new_truck = Truck() 
             self._app_data._trucks.append(new_truck)
+
+        trucks_string = []
         for truck in self._app_data._trucks:
-            print(truck.to_string())
+            truck_str = truck.to_string()
+            trucks_string.append(truck_str)
+        trucks_string = '\n'.join(trucks_string)
+        return trucks_string
