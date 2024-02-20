@@ -18,5 +18,5 @@ class User:
         self._email = value
 
     def __str__(self):
-        return f' {self.first_name}, \n {self.last_name}, \n {self.username}, \n {self.email}'
+        return f' {self._first_name}, \n {self._last_name}, \n {self._username}, \n {self._email}'
             
