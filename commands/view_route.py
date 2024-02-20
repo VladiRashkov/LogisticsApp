@@ -24,11 +24,11 @@ class ViewRouteCommand:
             info = (f'RouteID: {route._id}\n'
                    f'Route status: {route._status}\n'
                    f'Route locations: {route.locations()}\n'
-                   f'Route total distnce: {route.distance()}\n'
-                   f'Route capacity: {package_weights}\n'
+                   f'Route total distnce: {route.distance()} km\n'
+                   f'Route capacity: {package_weights} kg\n'
                    f'Route start date: {route._start_date_time.strftime("%d/%m %A @ %H:%M")}\n'
                    f'Route final ETA: {route.eta()}\n'
                    f'Route current ETA: {route.current_eta()}')
             on_route_list.append(info)
-            on_route_string = f'{"".join(on_route_list)}'
+            on_route_string = f'{"\n".join(on_route_list)}'
         return on_route_string
