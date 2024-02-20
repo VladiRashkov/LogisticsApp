@@ -1,6 +1,4 @@
 from core.application_data import ApplicationData
-from models.route import Route
-
 
 class CancelRouteCommand:
     def __init__(self, params: list[str], app_data: ApplicationData):
