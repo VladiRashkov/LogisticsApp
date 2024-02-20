@@ -1,0 +1,504 @@
+Input:   CreateTrucks  (CreateTruck, params:0)  - Alex
+Output:  
+Truck ID: 1001 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000 
+ =====================================================
+ Truck ID: 1002 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1003 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1004 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1005 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1006 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1007 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1008 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1009 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1010 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1011 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1012 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1013 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1014 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1015 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1016 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1017 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1018 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1019 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1020 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1021 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1022 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1023 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1024 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1025 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1026 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1027 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1028 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1029 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1030 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1031 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1032 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1033 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1034 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1035 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1036 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1037 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1038 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1039 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1040 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+
+Input:  CreateRoute AliceSprings Adelaide Melbourne Sydney Bristbane (CreateRoute, params: n) - Elena
+Output:  Route with ID: 1 has been created!
+
+Input: InfoRoute RouteId (ViewRoute, params: 1) - Elena
+Output:
+RouteID: 1
+Route status: open - > default message - changes when packages  assigned to route, and depends on the current date
+Route locations: Alice Spring (10/02 Saturday @ 06:00) > Adelaide (10/02 Saturday @ 20:00) > Sydney (11/02 Sunday @ 
+18:00) -> Melbourne (12/02 Monday @ 14:00) -> Brisbane (13/02 Tuesday @ 14:00)
+Route distance: 4041 km
+Route capacity: Capacity is still uncalculated. - > default message - changes when packages  assigned to route from hub
+Route start date: 10/02 Saturday @ 06:00
+Route final ETA: 13/02 Tuesday @ 14:00
+PackageID: Package is still unassigned. - > default message - changes when packages  assigned to route from hub
+TruckID: Truck is still unassigned. - > default message - changes validation passes route capacity < truck capacity; route 
+distance < truck max range, truck availability between route start date and route final ETA
+
+
+Input: FindTruck (FindTruck, params: 0) - Alex
+Output: 
+Available trucks:  Truck ID: 1001 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1002 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1003 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1004 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1005 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1006 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1007 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1008 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1009 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1010 --- Brand: Scania --- Status: Free,
+ Capacity: 42000
+ Range: 8000
+ =====================================================
+ Truck ID: 1011 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1012 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1013 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1014 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1015 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1016 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1017 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1018 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1019 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1020 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1021 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1022 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1023 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1024 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1025 --- Brand: Man --- Status: Free,
+ Capacity: 37000
+ Range: 10000
+ =====================================================
+ Truck ID: 1026 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1027 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1028 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1029 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1030 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1031 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1032 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1033 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1034 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1035 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1036 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1037 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1038 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1039 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+ Truck ID: 1040 --- Brand: Actros --- Status: Free,
+ Capacity: 26000
+ Range: 13000
+ =====================================================
+
+Input: AddTruckToRoute RouteId TruckId (AddTruckToRoute, params: 2) - Elena
+Output: Truck with ID: 1001 has been added to route with ID: 1!
+
+Input: InfoRoute RouteId (InfoRoute, params: 1) - Elena
+Output:
+ RouteID: 1
+Route status: open 
+Route locations: Alice Spring (10/02 Saturday @ 06:00) > Adelaide (10/02 Saturday @ 20:00) > Sydney (11/02 Sunday @ 
+18:00) -> Melbourne (12/02 Monday @ 14:00) -> Brisbane (13/02 Tuesday @ 14:00)
+Route distance: 4041 km
+Route capacity: Capacity is still uncalculated. 
+Route start date: 10/02 Saturday @ 06:00
+Route final ETA: 13/02 Tuesday @ 14:00
+PackageID: Package is still unassigned. 
+TruckID: 1001
+
+
+Input: UpdateTruck TruckID  (UpdateTruck, params: 1) - Alex
+Output: Truck 1001 updated to busy.
+
+Input: InfoTruck TruckId (InfoTruck, params: 1) - Alex
+Output: 
+Information for Truck 1001: 
+Status: Free | Capacity: 42000 | Range: 8000 
+
+
+Input: RegisterUser steven1 steven_jones1@gmail.com steven jones  (RegisterUser , params: 4) - Vladi
+Output: User Steven Jones registered successfully.
+
+Input: createpackage AliceSprings Sydney 85 rgervais - Vladi
+Output: Package 1 from AliceSprings to Sydney of the rgervais, 85 kg accepted in AliceSprings Hub.
+
+Input: InfoPackage IdPackage  (ViewPackage,  params: 1) - Vladi infopackage 7
+Output: PackageID: 7
+Package weight: 85 kg
+Package start location: Perth
+Package end location: Sydney
+Package entry date: 19/02 Monday @ 17:13
+Package final ETA:
+Package status: Delivered
+viewpackage Delivered
+
+Input:  FindRoute AliceSprings Adelaide  (FindRoute, params: 2) - Elena
+Output: 
+Route locations: Alice Spring (10/02 Saturday @ 06:00) > Adelaide (10/02 Saturday @ 20:00) > Sydney (11/02 Sunday @ 
+18:00) -> Melbourne (12/02 Monday @ 14:00) -> Brisbane (13/02 Tuesday @ 14:00)
+
+Input: AddPackageToRoute RouteId PackageId (AddPackageToRoute, params: 2) - Elena
+Output: Package with ID: 1 has been added to route with ID: 1!
+
+Input: UpdatePackage PackageID Assigned Eta(10/02 Saturday @ 20:00) (UpdatePackage, params: 4)  - Vladi
+Output: Package with ID:7 is on status: Delivered! 19/02 Monday @ 14:00
+
+
+Input: InfoRoute RouteId (InfoRoute, params: 1) - Elena
+Output:
+RouteID: 1
+Route status: open 
+Route locations: Alice Spring (10/02 Saturday @ 06:00) > Adelaide (10/02 Saturday @ 20:00) > Sydney (11/02 Sunday @ 
+18:00) -> Melbourne (12/02 Monday @ 14:00) -> Brisbane (13/02 Tuesday @ 14:00)
+Route distance: 4041 km
+Route capacity: 45
+Route start date: 10/02 Saturday @ 06:00
+Route final ETA: 13/02 Tuesday @ 14:00
+PackageID: 1 
+TruckID: 1001
+
+Input: UpdateRoute RouteId (UpdateRoute, params:2) - Elena
+Output: Route with ID: 1 has been updated with status: scheduled!
+
+Input: InfoRoute RouteId (ViewRoute, params: 1) - Elena
+Output:
+RouteID: 1
+Route status: scheduled 
+Route locations: Alice Spring (10/02 Saturday @ 06:00) > Adelaide (10/02 Saturday @ 20:00) > Sydney (11/02 Sunday @ 
+18:00) -> Melbourne (12/02 Monday @ 14:00) -> Brisbane (13/02 Tuesday @ 14:00)
+Route distance: 4041 km
+Route capacity: 45
+Route start date: 10/02 Saturday @ 06:00
+Route final ETA: 13/02 Tuesday @ 14:00
+PackageID: 1 
+TruckID: 1001
+
+
+Input: ViewRoute Status (ViewRoute, params: 1) - Elena
+Output:
+RouteID: 1
+Route status: scheduled 
+Route locations: Perth (15/02 Thursday @ 06:00) > Melbourne 16/02 Friday @ 22:00
+Route distance: 3509 km
+Route capacity: 13 555 kg
+Route start date: 15/02 Thursday @ 06:00
+Route final ETA: 16/02 Friday @ 22:00
+Route current ETA: 16/02 Friday @ 22:00
+===============
+RouteID: 2
+Route status: scheduled
+Route locations: Alice Springs (16/02 Friday @ 06:00) > Melbourne 17/02 Saturday @ 07:00
+Route distance: 2255 km
+Route capacity: 10 139 kg
+Route start date: 16/02 Friday @ 06:00
+Route final ETA: 17/02 Saturday @ 07:00
+Route current ETA: 17/02 Saturday @ 07:00
+===============
+RouteID: 3
+Route status: scheduled 
+Route locations: Bristbane (17/02 Saturday @ 06:00) > Adelaide 18/02 Sunday @ 04:00
+Route distance: 1927 km
+Route capacity: 28 744 kg
+Route start date: 17/02 Saturday @ 06:00
+Route final ETA: 18/02 Sunday @ 04:00
+Route current ETA: 18/02 Sunday @ 04:00
+===============
+
+Input: RemovePackageFromRoute RouteId PackageId (RemovePackageFromRoute, params: 2) - Elena
+Output: Package with ID: 1 has been removed from route with ID: 1!
+
+Input: RemoveTruckFromRoute RouteId TruckId  (RemoveTruckFromRoute, params: 2) - Elena
+Output: Truck with ID: 1001 has been removed from route with ID: 1!
+
+Input: UpdateRoute RouteId (UpdateRoute, params: 1) - Elena
+Output: Route with ID: 25 has been updated with status: cancelled!
+
+Input: InfoRoute RouteId (ViewRoute, params: 1) - Elena
+Output:
+RouteID: 1
+Route status: cancelled 
+Route locations: Alice Spring (10/02 Saturday @ 06:00) > Adelaide (10/02 Saturday @ 20:00) > Sydney (11/02 Sunday @ 
+18:00) -> Melbourne (12/02 Monday @ 14:00) -> Brisbane (13/02 Tuesday @ 14:00)
+Route distance: 4041 km
+Route capacity: Capacity is still uncalculated. 
+Route start date: 10/02 Saturday @ 06:00
+Route final ETA: 13/02 Tuesday @ 14:00
+PackageID: Package is still unassigned. 
+TruckID: Truck is still unassigned. 
+
+Input: CancelRoute RouteId  (CancelRoute, params:1) - Elena
+Output: Route with ID: 1 has been cancelled!
+
+Input: UpdateTruck TruckID available (UpdateTruck, params: 2) - Alex
+Output: Truck 1001 updated to busy.
+
+Input: InfoTruck TruckId (ViewTruck, params: 1) - Alex
+Output: Information for Truck 1001:
+Status: Free | Capacity: 42000 | Range: 8000
+
+Input: UpdatePackage PackageID  - Vladi
+Output: Package with ID:4 is on status: In progress!
+
+
+Input: InfoPackage IdPackage  (InfoPackage,  params: 1) - Vladi
+Output: PackageID: 7
+Package weight: 85 kg
+Package start location: Perth
+Package end location: Sydney
+Package entry date: 4 20/02 Monday @ 11:15
+Package final ETA: 21/02 Monday @ 14:00
+Package status: In progress
+viewpackage In progress
+ 
